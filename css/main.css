@@ -32,8 +32,8 @@ input {
   position: relative;
   width: 100%;
   background-color: #fff;
-  min-height: 100vh;
-  overflow: hidden;
+  min-height: 100vh; /* Scaling the container height according to the browser window size. */
+  overflow: hidden; /* To hide linear gradient curve */
 }
 
 .forms-container {
@@ -177,7 +177,7 @@ form.sign-in-form {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.logreg-container:before {
+.logreg-container::before {
   content: "";
   position: absolute;
   height: 2000px;
@@ -207,7 +207,7 @@ form.sign-in-form {
 }
 
 .left-panel {
-  pointer-events: all;
+  pointer-events: auto;
   padding: 3rem 17% 2rem 12%;
 }
 
@@ -284,9 +284,12 @@ form.sign-in-form {
 }
 
 .logreg-container.sign-up-mode .right-panel {
-  pointer-events: all;
+  pointer-events: auto;
 }
 
+/*
+    Where all the transition magic takes place
+*/
 @media (max-width: 870px) {
   .logreg-container {
     min-height: 800px;
@@ -352,7 +355,7 @@ form.sign-in-form {
     font-size: 0.7rem;
   }
 
-  .logreg-container:before {
+  .logreg-container::before {
     width: 1500px;
     height: 1500px;
     transform: translateX(-50%);
@@ -414,4 +417,46 @@ form.sign-in-form {
     bottom: 28%;
     left: 50%;
   }
+}
+
+/* Drag to Upload */
+#drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 20px;
+  width: 480px;
+  font-family: sans-serif;
+  margin: 100px auto;
+  padding: 20px;
+}
+#drop-area.highlight {
+  border-color: purple;
+}
+p {
+  margin-top: 0;
+}
+.my-form {
+  margin-bottom: 10px;
+}
+#gallery {
+  margin-top: 10px;
+}
+#gallery img {
+  width: 150px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.button {
+  display: inline-block;
+  padding: 10px;
+  background: #ccc;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.button:hover {
+  background: #ddd;
+}
+#fileElem {
+  display: none;
 }

@@ -22,6 +22,7 @@ $(document).ready(function() {
     activateMenu();
 });
 
+/* Start Login and Register */
 sign_up_btn.addEventListener("click", () => {
   container.classList.add("sign-up-mode");
 });
@@ -29,6 +30,7 @@ sign_up_btn.addEventListener("click", () => {
 sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
+/* End Login and Register */
 
 function activateMenu() {
     var current_page_URL = location.href;

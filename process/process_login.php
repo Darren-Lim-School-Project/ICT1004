@@ -73,6 +73,9 @@ function authenticateUser() {
                 // need to know which one they got right or wrong. :)
                 $errorMsg = "Email not found or password doesn't match...";
                 $success = false;
+            } else {
+                $_SESSION['fname'] = $fname;
+                $_SESSION['lname'] = $lname;
             }
         } else {
             $errorMsg = "Email not found or password doesn't match...";
@@ -99,13 +102,13 @@ function authenticateUser() {
             <?php
             if ($success) {
                 echo "<h3>Login successful!</h3>";
-                echo "<h4>Welcome back, " . $fname . " " . $lname . "</h4>";
-                echo "<a class=\"btn btn-primary\" href=\"index.php\">Return to home</a>";
+                echo "<h4>Welcome back, " . $_SESSION['fname'] . " " . $_SESSION['lname'] . "</h4>";
+                echo "<a class=\"btn btn-primary\" href=\"..\index.php\">Return to home</a>";
             } else {
                 echo "<h3>Oops!</h3>";
                 echo "<h4>The following errors were detected:</h4>";
                 echo "<p>" . $errorMsg . "</p>";
-                echo "<a class=\"btn btn-danger\" href=\"login.php\">Return to Login</a>";
+                echo "<a class=\"btn btn-danger\" href=\"..\index.php\">Return to Login</a>";
             }
             ?>
             

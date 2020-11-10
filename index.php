@@ -9,12 +9,13 @@ and open the template in the editor.
     Declare lang attribute not only declare the language of web page, it can also assist search engines and browser
     -->
     <head>
+        
         <?php
         include "head.inc.php";
         ?>
+        
     </head>
     <body>
-
         <main class="logreg-container">
             <div class="forms-container">
                 <div class="signin-signup">
@@ -29,7 +30,7 @@ and open the template in the editor.
                         
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <input type="password" aria-label="Enter your password here to log in your account." 
+                            <input type="password" aria-label="Enter your password here to log in your account. Hello" 
                                    id="pwd" name="pwd" placeholder="Password" required>
                         </div>
                         
@@ -135,5 +136,6 @@ and open the template in the editor.
         <?php
         include "foot.inc.php";
         ?>
+        
     </body>
 </html>
