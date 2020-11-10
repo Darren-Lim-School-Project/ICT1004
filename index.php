@@ -30,7 +30,7 @@ and open the template in the editor.
                         
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <input type="password" aria-label="Enter your password here to log in your account. Hello" 
+                            <input type="password" aria-label="Enter your password here to log in your account." 
                                    id="pwd" name="pwd" placeholder="Password" required>
                         </div>
                         
