@@ -12,10 +12,6 @@
  $('#popup-img').attr('src', src);
  });
  */
-const ID_POPUP = "id_popup";
-const sign_in_btn = document.querySelector("#sign-in-btn");
-const sign_up_btn = document.querySelector("#sign-up-btn");
-const container = document.querySelector(".logreg-container");
 
 $(document).ready(function () {
     registerEventHandlers();
@@ -76,7 +72,7 @@ function readFile() {
 
         FR.addEventListener("load", function (e) {
             document.getElementById("img").src = e.target.result;
-            document.getElementById("b64").innerHTML = e.target.result;
+            document.getElementById("b64").innerHTML = e.target.result.split(",")[1];
             console.log(e.target.result);
         });
         
