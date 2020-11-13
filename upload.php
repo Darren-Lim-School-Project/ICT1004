@@ -22,13 +22,17 @@ and open the template in the editor.
         ?>
 
         <main class="container">
-            <div class="media">
-                <img src="..." class="mr-3" alt="...">
-                <div class="media-body">
-                    <h5 class="mt-0">Media heading</h5>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                </div>
-            </div>
+            
+            <!--
+            <canvas id="myCanvas" width="300" height="120"></canvas><br>
+            <label for="btnUpload">Select an image file:</label>
+            <input type="file" id="btnUpload" name="myfile" accept=".jpg, .png, .jpeg">
+            -->
+            
+            <input id="inp" type="file" accept=".jpg, .png, .jpeg">
+            <p id="b64"></p>
+            <img id="img" height="150">
+            
             <!--
             <div class="input-group">
                 <div class="input-group-prepend">
