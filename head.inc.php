@@ -20,10 +20,10 @@
 
 <!--FontAwesome JS-->
 <script defer
-      src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous">
+        src="https://kit.fontawesome.com/64d58efce2.js"
+        crossorigin="anonymous">
 </script>
-    
+
 <!--Custom JS -->
 <script defer 
         src="js/main.js">
