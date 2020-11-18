@@ -29,9 +29,15 @@ and open the template in the editor.
             <input type="file" id="btnUpload" name="myfile" accept=".jpg, .png, .jpeg">
             -->
             
-            <input id="inp" type="file" accept=".jpg, .png, .jpeg">
-            <p id="b64"></p>
-            <img id="img" height="150">
+           <!-- <input id="inp" type="file" accept=".jpg, .png, .jpeg">
+            <p id="resize"></p>
+            <p id="b64"></p>  
+            <img id="img" height="150">-->
+            
+            Select a file: <input type="file" id="uploader">
+        <button onclick='resize()'>Resize</button>
+        <img id="image">
+            
         </main>
 
         <?php
