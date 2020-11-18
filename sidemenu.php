@@ -7,7 +7,8 @@
         <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
             <i class="fa fa-remove"></i>
         </a>
-        <img src="images/sp.jpg" style="width:100%;" class="w3-round"><br><br>
+        <a href="gui.php"><img src="images/sp.jpg" alt="simplegram logo" style="width:100%;" class="w3-round"></a>
+       
         <?php
         include "googletranslate.php";
         ?>
@@ -16,11 +17,11 @@
     </div>
 </div>
 <div class="w3-bar-block">
-    <a href="gui.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"c><i class=" fa fa-user fa-fw w3-margin-right"></i>MY Simplegram</a> 
-    <a href="aboutUs.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>ABOUT Simplegram</a> 
+    <a href="gui.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"c><i class=" fa fa-address-card-o fa-fw w3-margin-right"></i>MY Simplegram</a> 
+    <a href="aboutUs.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw w3-margin-right"></i>About Simplegram</a> 
     <a href="contactUs.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-phone fa-fw w3-margin-right"></i>CONTACT</a>
-    <a href="upload.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"c><i class=" fas fa-cloud fa-fw w3-margin-right"></i>Upload picture</a> 
-    <a href="Myaccount.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"c><i class=" fas fa-cloud fa-fw w3-margin-right"></i>My account</a> 
+    <a href="upload.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"c><i class=" fa fa-hand-o-up fa-fw w3-margin-right"></i>Upload picture</a> 
+    <a href="Myaccount.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"c><i class=" fas fa-eye fa-fw w3-margin-right"></i>My account</a> 
 </div>
 
 </div>
