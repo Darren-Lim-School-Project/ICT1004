@@ -22,16 +22,28 @@ and open the template in the editor.
         ?>
 
         <main class="container">
-            
-            <!--
-            <canvas id="myCanvas" width="300" height="120"></canvas><br>
-            <label for="btnUpload">Select an image file:</label>
-            <input type="file" id="btnUpload" name="myfile" accept=".jpg, .png, .jpeg">
-            -->
-            
-            <input id="inp" type="file" accept=".jpg, .png, .jpeg">
-            <p id="b64"></p>
-            <img id="img" height="150">
+            <form action="process/process_upload.php" class="sign-in-form" method="POST">
+                <!--
+                <canvas id="myCanvas" width="300" height="120"></canvas><br>
+                <label for="btnUpload">Select an image file:</label>
+                <input type="file" id="btnUpload" name="myfile" accept=".jpg, .png, .jpeg">
+                -->
+
+<!-- <input id="inp" type="file" accept=".jpg, .png, .jpeg">
+<p id="resize"></p>
+<p id="b64"></p>  
+<img id="img" height="150">-->
+
+                <label for="uploader">Select a file:</label> 
+                <input type="file" id="uploader" accept=".jpg, .png, .jpeg">
+                <img id="image">
+                <!--
+                <p id="b64" name="b64"></p> 
+                -->
+                
+                <input type="hidden" id="b64" name="b64" value=""/>
+                <button class="btn solid" type="submit">Upload</button>
+            </form>
         </main>
 
         <?php
