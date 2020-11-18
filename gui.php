@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>   
     
-    <?php
-            include "sidemenu.php";
-        ?>
+   
     
 <?php
 include "css.php";
 ?>
 
-
+ <?php
+            include "sidemenu.php";
+        ?>
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px"> 
@@ -76,9 +76,7 @@ include "css.php";
     </div>
 
     <!-- Pagination -->
-    <?php
-    include "mainpaging.php";
-    ?>
+    
     <!
 
 
