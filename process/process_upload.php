@@ -1,11 +1,11 @@
 <?php
 // Define and initialize variables to hold our form data:
-$base64 = "";
+$base64 = $errorMsg = "";
+$success = true;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $base64 = $_POST["b64"];
     saveMemberToDB();
-    
 } else {
     echo "<h2>This page is not meant to be run directly.</h2>";
     echo "<p>You can register at the link below:</p>";
@@ -14,13 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function saveMemberToDB() {
-    global $base64;
-    
+    global $base64, $errorMsg, $success;
     // Create database connection.
     $config = parse_ini_file('../../../private/dbconfig.ini');
     $conn = new mysqli($config['servername'], $config['username'],
             $config['password'], $config['dbname']);
-    
+    //$errorMsg = "Servername: " . $config['servername'];
     // Check connection
     if ($conn->connect_error)
     {
@@ -43,7 +42,7 @@ function saveMemberToDB() {
 ?>
 <html>
     <head>
-        <title>Registration Results</title>
+        <title>Image Upload Result</title>
         <?php
             include "../head.inc.php";
         ?>
@@ -52,19 +51,17 @@ function saveMemberToDB() {
         <?php
             include "../nav.inc.php";
         ?>
-        
         <main class="container">
             
             <?php
             if ($success) {
-                echo "<h3>Your registration is successful!</h3>";
-                echo "<h4>Thank you for signing up, " . $fname . " " . $lname . "</h4>";
-                echo "<a class=\"btn btn-primary\" href=\"index.php\">Log-in</a>";
+                echo "<h3>Your image has been uploaded!</h3>";
+                echo "<a class=\"btn btn-primary\" href=\"../index.php\">Log-in</a>";
             } else {
                 echo "<h3>Oops!</h3>";
                 echo "<h4>The following input errors were detected:</h4>";
-                echo "<p>" . $errorMsg . $base64 . "</p>";
-                echo "<a class=\"btn btn-danger\" href=\"upload.php\">Return to Sign Up</a>";
+                echo "<p>" . $errorMsg . $base64 ."</p>";
+                echo "<a class=\"btn btn-danger\" href=\"../upload.php\">Return to Sign Up</a>";
             }
             ?>
             

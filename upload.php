@@ -37,7 +37,10 @@ and open the template in the editor.
                 <label for="uploader">Select a file:</label> 
                 <input type="file" id="uploader" accept=".jpg, .png, .jpeg">
                 <img id="image">
+                <!--
                 <p id="b64" name="b64"></p> 
+                -->
+                <input type="hidden" id="b64" name="b64" value=""/>
                 <button class="btn solid" type="submit">Upload</button>
             </form>
         </main>

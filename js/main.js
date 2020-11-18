@@ -99,7 +99,7 @@ function resize(){
 
       //assign it to thumb src
       document.querySelector('#image').src = srcEncoded;
-      document.getElementById("b64").innerHTML = srcEncoded.split(",")[1];
+      document.getElementById("b64").value = srcEncoded.split(",")[1];
       console.log(srcEncoded.split(",")[1]);
 
       /*Now you can send "srcEncoded" to the server and
