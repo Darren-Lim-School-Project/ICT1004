@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+const CAPTION_POPOUT = "caption_popout";
 
 /*
  $('.img-thumbnail').click(function () {
@@ -14,7 +15,6 @@
  */
 
 $(document).ready(function () {
-    registerEventHandlers();
     activateMenu();
 });
 
@@ -30,37 +30,6 @@ function activateMenu() {
             return false;
         }
     });
-}
-
-function registerEventHandlers() {
-    var thumbnails = document.getElementsByClassName("img-thumbnail");
-    if (thumbnails !== null) {
-        for (var i = 0; i < thumbnails.length; i++) {
-            var thumbnail = thumbnails[i];
-            thumbnail.addEventListener("click", togglePopup);
-        }
-    } else {
-        console.log("No thumbnail images found!");
-    }
-}
-
-function togglePopup(e) {
-    var popup = document.getElementById(ID_POPUP);
-
-    if (popup === null) {
-        popup = document.createElement("span");
-        popup.id = ID_POPUP;
-        popup.setAttribute("class", "img-popup");
-
-        var thumbnail = e.target;
-        var small_image = thumbnail.src;
-        var big_image = small_image.replace("_small", "_large");
-
-        popup.innerHTML = '<img src=' + big_image + '>';
-        thumbnail.insertAdjacentElement("afterend", popup);
-    } else {
-        $("#" + ID_POPUP).remove();
-    }
 }
 
 function resize(){
@@ -101,7 +70,6 @@ function resize(){
       document.querySelector('#image').src = srcEncoded;
       document.getElementById("b64").value = srcEncoded.split(",")[1];
       console.log(srcEncoded.split(",")[1]);
-
       /*Now you can send "srcEncoded" to the server and
       convert it to a png o jpg. Also can send
       "el.target.name" that is the file's name.*/
@@ -118,6 +86,20 @@ function resize(){
 
     }
   }
+}
+
+function togglePopout() {
+    var popout = document.getElementById(CAPTION_POPOUT);
+
+    if (popout === null) {
+        popout = document.createElement("span");
+        popout.id = CAPTION_POPOUT;
+        var big_image
+        popout.innerHTML = '<textarea id="caption" name="caption" rows="4" cols="50"></textarea>';
+        document.getElementById("image").insertAdjacentElement("afterend", popout);
+    } else {
+        $("#" + CAPTION_POPOUT).remove();
+    }
 }
 
 /*function imageCreateFromAny() {
@@ -173,3 +155,4 @@ function resize(){
 imageCreateFromAny();
 document.getElementById("inp").addEventListener("change", readFile);*/
 document.getElementById("uploader").addEventListener("change", resize);
+document.getElementById("uploader").addEventListener("change", togglePopout);

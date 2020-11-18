@@ -40,6 +40,7 @@ and open the template in the editor.
                 <!--
                 <p id="b64" name="b64"></p> 
                 -->
+                
                 <input type="hidden" id="b64" name="b64" value=""/>
                 <button class="btn solid" type="submit">Upload</button>
             </form>
