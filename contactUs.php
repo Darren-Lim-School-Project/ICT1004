@@ -9,8 +9,8 @@
     ?>
 
     <!-- !PAGE CONTENT! -->
-   <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
-  <!--side button-->
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <!--side button-->
     <div class="w3-main" style="margin-left:300px">
         <div class="w3-container w3-padding-64  w3-light-blue w3-grayscale-min" id="us">
             <div class="w3-content">
@@ -20,7 +20,7 @@
                 $config = parse_ini_file('../../../private/dbconfig.ini');
                 $conn = new mysqli($config['servername'], $config['username'],
                         $config['password'], $config['dbname']);
-                $stmt = $conn->prepare("SELECT * FROM accounts WHERE email=?");
+                $stmt = $conn->prepare("SELECT * FROM accounts WHERE email=ss@ss.com");
                 ?>
 
                 <!-- Contact Section -->
@@ -30,7 +30,15 @@
                         <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
 
  <!-- <input type='email' id='email' name='email' value=<?php echo $_SESSION['email']; ?> -->
-                        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="email" required name="Email"></p>
+                        0
+
+                       
+                        echo"<tr>";
+                            echo"<td><input type=\"text\" name=\"user_id\" value=\".$row['email']."\"></td>";
+                            echo"</tr>";
+                        }
+
+                        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder= $_SESSION['email'] required name="Email"></p>
                         <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Subject" required name="Subject"></p>
                         <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
                         <p>
