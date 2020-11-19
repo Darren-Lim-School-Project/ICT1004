@@ -47,6 +47,7 @@ function saveMemberToDB() {
         <?php
             include "../head.inc.php";
         ?>
+        <meta http-equiv="refresh" content="5;url=../gui.php" />
     </head>
     <body>
         <?php
@@ -57,6 +58,7 @@ function saveMemberToDB() {
             <?php
             if ($success) {
                 echo "<h3>Your image has been uploaded!</h3>";
+                echo "<p>You will be redirected in 3 seconds...</h3>";
             } else {
                 echo "<h3>Oops!</h3>";
                 echo "<h4>The following input errors were detected:</h4>";
