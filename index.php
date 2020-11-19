@@ -23,7 +23,7 @@ and open the template in the editor.
         <main class="logreg-container">
             <div class="forms-container">
                 <div class="signin-signup">
-                    <form action="gui.php" class="sign-in-form" method="POST">
+                    <form action="process/process_login.php" class="sign-in-form" method="POST">
                         <h2 class="title">Sign in</h2>
 
                         <div class="input-field">

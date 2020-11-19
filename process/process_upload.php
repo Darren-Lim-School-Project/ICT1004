@@ -1,10 +1,12 @@
 <?php
+session_start();
 // Define and initialize variables to hold our form data:
-$base64 = $errorMsg = "";
+$base64 = $caption = $errorMsg = "";
 $success = true;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $base64 = $_POST["b64"];
+    $caption = $_POST["caption"];
     saveMemberToDB();
 } else {
     echo "<h2>This page is not meant to be run directly.</h2>";
@@ -14,12 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function saveMemberToDB() {
-    global $base64, $errorMsg, $success;
+    global $base64, $caption, $errorMsg, $success;
     // Create database connection.
     $config = parse_ini_file('../../../private/dbconfig.ini');
     $conn = new mysqli($config['servername'], $config['username'],
             $config['password'], $config['dbname']);
-    //$errorMsg = "Servername: " . $config['servername'];
     // Check connection
     if ($conn->connect_error)
     {
@@ -27,10 +28,10 @@ function saveMemberToDB() {
         $success = false;
     } else {
         // Prepare the statement:
-        $stmt = $conn->prepare("INSERT INTO image (base64) VALUES (?)");
+        $stmt = $conn->prepare("INSERT INTO image (acc_id, base64, caption) VALUES (?, ?, ?)");
         
         // Bind & execute the query statement:
-        $stmt->bind_param("s", $base64);
+        $stmt->bind_param("sss", $_SESSION['acc_id'], $base64, $caption);
         if (!$stmt->execute()) {
             $errorMsg = "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
             $success = false;
@@ -56,7 +57,6 @@ function saveMemberToDB() {
             <?php
             if ($success) {
                 echo "<h3>Your image has been uploaded!</h3>";
-                echo "<a class=\"btn btn-primary\" href=\"../index.php\">Log-in</a>";
             } else {
                 echo "<h3>Oops!</h3>";
                 echo "<h4>The following input errors were detected:</h4>";

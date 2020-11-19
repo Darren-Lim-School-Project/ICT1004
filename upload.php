@@ -4,10 +4,12 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+
+<?php
+    session_start();
+?>
+
 <html lang="en">
-    <!-- 
-    Declare lang attribute not only declare the language of web page, it can also assist search engines and browser
-    -->
     <head>
 
         <?php
@@ -20,35 +22,30 @@ and open the template in the editor.
         <?php
         include "nav.inc.php";
         ?>
-
+        
         <main class="container">
-            <form action="process/process_upload.php" class="sign-in-form" method="POST">
-                <!--
-                <canvas id="myCanvas" width="300" height="120"></canvas><br>
-                <label for="btnUpload">Select an image file:</label>
-                <input type="file" id="btnUpload" name="myfile" accept=".jpg, .png, .jpeg">
-                -->
-
-<!-- <input id="inp" type="file" accept=".jpg, .png, .jpeg">
-<p id="resize"></p>
-<p id="b64"></p>  
-<img id="img" height="150">-->
-
-                <label for="uploader">Select a file:</label> 
-                <input type="file" id="uploader" accept=".jpg, .png, .jpeg">
-                <img id="image">
-                <!--
-                <p id="b64" name="b64"></p> 
-                -->
-                
-                <input type="hidden" id="b64" name="b64" value=""/>
-                <button class="btn solid" type="submit">Upload</button>
-            </form>
-        </main>
-
+            
         <?php
-        include "foot.inc.php";
+        if (isset($_SESSION['acc_id'])) {
+            echo '<form action="process/process_upload.php" class="sign-in-form" method="POST">';
+            echo '<label for="uploader">Select a file:</label>';
+            echo '<input type="file" id="uploader" accept=".jpg, .png, .jpeg">';
+            echo '<img id="image">';
+            echo '<input type="hidden" id="b64" name="b64" value=""/>';
+            echo '<button class="btn solid" type="submit">Upload</button>';
+            echo '</form>';
+        } else {
+            echo "<h2>This page is not meant to be run directly.</h2>";
+            echo "<p>You can login at the link below:</p>";
+            echo "<a href='login.php'>Go to Login page...</a>";
+        }
         ?>
+
+        </main>
+        
+<?php
+include "foot.inc.php";
+?>
 
     </body>
 </html>

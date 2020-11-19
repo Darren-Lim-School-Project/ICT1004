@@ -1,6 +1,7 @@
 <?php
+session_start();
 // Define and initialize variables to hold our form data:
-$fname = $lname = $email = $pwd_hashed = $errorMsg = "";
+$acc_id = $fname = $lname = $email = $pwd_hashed = $errorMsg = "";
 $success = true;
 
 // Only process if the form has been submitted via POST
@@ -40,7 +41,7 @@ function sanitize_input($data) {
  * Helper function to authenticate the login.
  */
 function authenticateUser() {
-    global $fname, $lname, $email, $pwd_hashed, $errorMsg, $success;
+    global $acc_id, $fname, $lname, $email, $pwd_hashed, $errorMsg, $success;
     
     // Create database connection.
     $config = parse_ini_file('../../../private/dbconfig.ini');
@@ -63,6 +64,7 @@ function authenticateUser() {
             // Note that email field is unique, so should only have
             // one row in the result set.
             $row = $result->fetch_assoc();
+            $acc_id = $row["acc_id"];
             $fname = $row["fname"];
             $lname = $row["lname"];
             $pwd_hashed = $row["password"];
@@ -74,6 +76,7 @@ function authenticateUser() {
                 $errorMsg = "Email not found or password doesn't match...";
                 $success = false;
             } else {
+                $_SESSION['acc_id'] = $acc_id;
                 $_SESSION['fname'] = $fname;
                 $_SESSION['lname'] = $lname;
             }
