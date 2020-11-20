@@ -1,10 +1,18 @@
 <?php
 // Define and initialize variables to hold our form data:
-$fname = $lname = $email = $pwd_hashed = $errorMsg = "";
+$uname= $fname = $lname = $email = $pwd_hashed = $errorMsg = "";
 $success = true;
 
 // Only process if the form has been submitted via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    // Username
+    if (!empty($_POST["uname"])) {
+        $errorMsg .= "Username is required.<br>";
+        $success = false;
+    } else {
+        $uname = sanitize_input($_POST["uname"]);
+    }
     
     // First Name
     if (!empty($_POST["fname"])) {
@@ -70,7 +78,7 @@ function sanitize_input($data) {
 }
 
 function saveMemberToDB() {
-    global $fname, $lname, $email, $pwd_hashed, $errorMsg, $success;
+    global $fname, $lname, $email, $pwd_hashed, $errorMsg, $success, $uname;
     
     // Create database connection.
     $config = parse_ini_file('../../../private/dbconfig.ini');
@@ -84,10 +92,10 @@ function saveMemberToDB() {
         $success = false;
     } else {
         // Prepare the statement:
-        $stmt = $conn->prepare("INSERT INTO accounts (email, password, fname, lname) VALUES (?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO accounts (email, password, fname, lname, uname) VALUES (?, ?, ?, ?, ?)");
         
         // Bind & execute the query statement:
-        $stmt->bind_param("ssss", $email, $pwd_hashed, $fname, $lname);
+        $stmt->bind_param("sssss", $email, $pwd_hashed, $fname, $lname, $uname);
         if (!$stmt->execute()) {
             $errorMsg = "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
             $success = false;
@@ -115,12 +123,12 @@ function saveMemberToDB() {
             if ($success) {
                 echo "<h3>Your registration is successful!</h3>";
                 echo "<h4>Thank you for signing up, " . $fname . " " . $lname . "</h4>";
-                echo "<a class=\"btn btn-primary\" href=\"index.php\">Log-in</a>";
+                echo "<a class=\"btn btn-primary\" href=\"../index.php\">Log-in</a>";
             } else {
                 echo "<h3>Oops!</h3>";
                 echo "<h4>The following input errors were detected:</h4>";
                 echo "<p>" . $errorMsg . "</p>";
-                echo "<a class=\"btn btn-danger\" href=\"index.php\">Return to Sign Up</a>";
+                echo "<a class=\"btn btn-danger\" href=\"../index.php\">Return to Sign Up</a>";
             }
             ?>
             

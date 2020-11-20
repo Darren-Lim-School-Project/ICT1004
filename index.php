@@ -63,6 +63,14 @@ and open the template in the editor.
                                    id="email" name="email" placeholder="Email" required>
 
                         </div>
+                        
+                        <div class="input-field">
+
+                            <i class="fas fa-user"></i>
+                            <input type="text" aria-label="Enter your Username to create an account." 
+                                   id="uname" name="uname" placeholder="Username" required>
+
+                        </div>
 
                         <div class="input-field">
 
