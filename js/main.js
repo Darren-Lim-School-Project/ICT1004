@@ -18,6 +18,18 @@ $(document).ready(function () {
     activateMenu();
 });
 
+function toggle() {
+    var like = document.getElementById("like");
+    
+    if (like.className === "like-border") {
+        like.className = "like-black";
+        like.src = "images/baseline_favorite_black_18dp.png";
+    } else if (like.className === "like-black") {
+        like.className = "like-border";
+        like.src = "images/baseline_favorite_border_18dp.png";
+    }
+}
+
 function activateMenu() {
     var current_page_URL = location.href;
 

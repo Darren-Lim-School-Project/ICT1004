@@ -79,6 +79,9 @@ function authenticateUser() {
                 $_SESSION['acc_id'] = $acc_id;
                 $_SESSION['fname'] = $fname;
                 $_SESSION['lname'] = $lname;
+                if (isset($_SESSION['fname'])) {
+                    header('Location: ../userMain.php');
+                }
             }
         } else {
             $errorMsg = "Email not found or password doesn't match...";
