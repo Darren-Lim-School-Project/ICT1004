@@ -1,6 +1,7 @@
 <?php
 
-require_once ("db.php");
+// require_once ("db.php");
+$config = parse_ini_file('../../../private/dbconfig.ini');
 $commentId = isset($_POST['comment_id']) ? $_POST['comment_id'] : "";
 $comment = isset($_POST['comment']) ? $_POST['comment'] : "";
 $commentSenderName = isset($_POST['name']) ? $_POST['name'] : "";
