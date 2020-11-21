@@ -3,6 +3,7 @@ session_start();
 // Define and initialize variables to hold our form data:
 $base64 = $caption = $errorMsg = "";
 $success = true;
+$_SESSION['acc_id'] = $acc_id;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $base64 = $_POST["b64"];
@@ -15,8 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 
-function saveMemberToDB() {
-    global $base64, $caption, $errorMsg, $success;
+function GetToDB() {
+    global $acc_id, $errorMsg, $success;
     // Create database connection.
     $config = parse_ini_file('../../../private/dbconfig.ini');
     $conn = new mysqli($config['servername'], $config['username'],
@@ -28,10 +29,10 @@ function saveMemberToDB() {
         $success = false;
     } else {
         // Prepare the statement:
-        $stmt = $conn->prepare("INSERT INTO image (acc_id, base64, caption) VALUES (?, ?, ?)");
+        $stmt = $conn->prepare("SELECT * in image where acc_id=?");
         
         // Bind & execute the query statement:
-        $stmt->bind_param("sss", $_SESSION['acc_id'], $base64, $caption);
+        $stmt->bind_param("s", $acc_id);
         if (!$stmt->execute()) {
             $errorMsg = "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
             $success = false;
