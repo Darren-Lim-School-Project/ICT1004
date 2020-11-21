@@ -157,7 +157,7 @@ span.posted-by {
                             for (var i = 0; (i < data.length); i++)
                             {
                                 var commentId = data[i]['comment_id'];
-                                parent = data[i]['parent_comment_id'];
+                                parent = data[i]['image_id'];
 
                                 if (parent == "0")
                                 {
@@ -181,7 +181,7 @@ span.posted-by {
             function listReplies(commentId, data, list) {
                 for (var i = 0; (i < data.length); i++)
                 {
-                    if (commentId == data[i].parent_comment_id)
+                    if (commentId == data[i].image_id)
                     {
                         var comments = "<div class='comment-row'>"+
                         " <div class='comment-info'><span class='commet-row-label'>from</span> <span class='posted-by'>" + data[i]['comment_sender_name'] + " </span> <span class='commet-row-label'>at</span> <span class='posted-at'>" + data[i]['date'] + "</span></div>" + 
