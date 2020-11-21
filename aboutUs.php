@@ -20,7 +20,7 @@
 
 <div class="w3-container w3-padding-64  w3-light-blue w3-grayscale-min" id="us">
   <div class="w3-content">
-    <h1 class="w3-center w3-text-grey"><b>About SimpleGramm</b></h1>
+    <h1 class="w3-center w3-text-grey"><b>About SimpleGram</b></h1>
     <img class="w3-round w3-grayscale-min" src="images/sp.jpg" style="width:100%;margin:32px 0">
     <p><i>At SimpleGram our mission is to make your life simple! Upload!Glance!Like!Comment! </i>
     </p><br>
