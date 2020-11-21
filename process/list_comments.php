@@ -2,7 +2,7 @@
 
 $config = parse_ini_file('../../../private/dbconfig.ini');
 
-$sql = "SELECT * FROM comment WHERE post_id = " . $post_id . ", ORDER BY, comment_id asc";
+$sql = "SELECT * FROM comment WHERE image_id = " . $image_id . ", ORDER BY, date_time asc";
 
 $result = mysqli_query($conn, $sql);
 $record_set = array();

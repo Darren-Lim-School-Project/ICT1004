@@ -114,7 +114,7 @@ span.posted-by {
                 var str = $("#frm-comment").serialize();
 
                 $.ajax({
-                    url: "comment-add.php",
+                    url: "./process/post_comment.php",
                     data: str,
                     type: 'post',
                     success: function (response)
@@ -141,7 +141,7 @@ span.posted-by {
             });
 
             function listComment() {
-                $.post("comment-list.php",
+                $.post("./process/list_comments.php",
                         function (data) {
                                var data = JSON.parse(data);
                             

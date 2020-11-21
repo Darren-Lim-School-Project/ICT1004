@@ -7,7 +7,7 @@ $comment = isset($_POST['comment']) ? $_POST['comment'] : "";
 $commentSenderName = isset($_POST['name']) ? $_POST['name'] : "";
 // $date = date('Y-m-d H:i:s');
 
-$sql = "INSERT INTO comment(parent_comment_id,comment,comment_sender_name) VALUES ('" . $commentId . "','" . $comment . "','" . $commentSenderName . "')";
+$sql = "INSERT INTO comment(image_id,comment,commenter_id) VALUES ('" . $commentId . "','" . $comment . "','" . $commentSenderName . "')";
 
 $result = mysqli_query($conn, $sql);
 
