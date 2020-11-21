@@ -12,8 +12,8 @@ $memberId = $_SESSION['acc_id'];
 
 // Temp database connection
 $servername = "localhost";
-$username = "sqldev";
-$password = "darren5740";
+$username = "simpledev";
+$password = "password";
 $dbname = "simplegram";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
