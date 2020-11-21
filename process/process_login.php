@@ -44,7 +44,7 @@ function authenticateUser() {
     global $acc_id, $fname, $lname, $email, $pwd_hashed, $errorMsg, $success;
     
     // Create database connection.
-    $config = parse_ini_file('../../../private/dbconfig.ini');
+    $config = parse_ini_file('../../private/dbconfig.ini');
     $conn = new mysqli($config['servername'], $config['username'],
             $config['password'], $config['dbname']);
     
