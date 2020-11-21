@@ -17,11 +17,11 @@
     </div>
 </div>
 <div class="w3-bar-block">
-    <a href="gui.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"c><i class=" fa fa-address-card-o fa-fw w3-margin-right"></i>MY Simplegram</a> 
+    <a href="gui.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"c><i class=" fa fa-address-card-o fa-fw w3-margin-right"></i>My SimpleGram</a> 
     <a href="aboutUs.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw w3-margin-right"></i>About Simplegram</a> 
-    <a href="contactUs.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-phone fa-fw w3-margin-right"></i>CONTACT</a>
-    <a href="upload.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"c><i class=" fa fa-hand-o-up fa-fw w3-margin-right"></i>Upload picture</a> 
-    <a href="Myaccount.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"c><i class=" fas fa-eye fa-fw w3-margin-right"></i>My account</a> 
+    <a href="contactUs.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-phone fa-fw w3-margin-right"></i>Contact</a>
+    <a href="upload.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"c><i class=" fa fa-hand-o-up fa-fw w3-margin-right"></i>Upload Photo</a> 
+    <a href="Myaccount.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"c><i class=" fas fa-eye fa-fw w3-margin-right"></i>My Account</a> 
 </div>
 
 </div>

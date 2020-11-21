@@ -1,13 +1,13 @@
 <?php
 // Define and initialize variables to hold our form data:
-$uname= $fname = $lname = $email = $pwd_hashed = $errorMsg = "";
+$uname = $fname = $lname = $email = $pwd_hashed = $errorMsg = "";
 $success = true;
 
 // Only process if the form has been submitted via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Username
-    if (!empty($_POST["uname"])) {
+    if (empty($_POST["uname"])) {
         $errorMsg .= "Username is required.<br>";
         $success = false;
     } else {
