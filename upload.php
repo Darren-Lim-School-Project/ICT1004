@@ -14,7 +14,6 @@ and open the template in the editor.
 
         <?php
         include "head.inc.php";
-        include "view_images";
         ?>
 
     </head>
@@ -34,13 +33,7 @@ and open the template in the editor.
             echo '<img id="image">';
             echo '<input type="hidden" id="b64" name="b64" value=""/>';
             echo '<button class="btn solid" type="submit">Upload</button>';
-            echo '<label>View all Images</label>';
-            echo '<button class="btn solid" type="submit">View</button>';
             echo '</form>';
-            echo '<ui id="Viewimages">';
-            
-            
-            echo'</ui>';
         } else {
             echo "<h2>This page is not meant to be run directly.</h2>";
             echo "<p>You can login at the link below:</p>";
