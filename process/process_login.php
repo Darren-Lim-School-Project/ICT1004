@@ -67,6 +67,7 @@ function authenticateUser() {
             $acc_id = $row["acc_id"];
             $fname = $row["fname"];
             $lname = $row["lname"];
+            $uname = $row["uname"];
             $pwd_hashed = $row["password"];
             
             // Check if the password matches:
@@ -79,6 +80,7 @@ function authenticateUser() {
                 $_SESSION['acc_id'] = $acc_id;
                 $_SESSION['fname'] = $fname;
                 $_SESSION['lname'] = $lname;
+                $_SESSION['uname'] = $uname;
                 if (isset($_SESSION['fname'])) {
                     header('Location: ../userMain.php');
                 }

@@ -24,7 +24,7 @@ and open the template in the editor.
         include "nav.inc.php";
         ?>
         <header class="jumbotron text-center">
-            <?php echo "<h1>" . $_SESSION['fname'] . " " . $_SESSION['lname'] . "</h1>"; ?>
+            <?php echo "<h1>" . $_SESSION['uname'] . "</h1>"; ?>
         </header>
         <main class="container">
             <?php
