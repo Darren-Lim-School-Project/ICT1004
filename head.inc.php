@@ -18,6 +18,11 @@
         crossorigin="anonymous">
 </script>
 
+<script defer
+        src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js" 
+        crossorigin="anonymous">
+</script>
+
 <!--FontAwesome JS-->
 <script defer
         src="https://kit.fontawesome.com/64d58efce2.js"
@@ -27,6 +32,10 @@
 <!--Custom JS -->
 <script defer 
         src="js/main.js">
+</script>
+
+<script defer 
+        src="js/zxcbn-bootstrap4-strength-meter.js">
 </script>
 
 <title>SimpleGram</title>

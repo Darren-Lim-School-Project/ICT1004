@@ -42,19 +42,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     // Password
-    if (empty($_POST["pwd"]) || empty($_POST["pwd_confirm"])) {
+    if (empty($_POST["regpwd"]) || empty($_POST["regpwd_confirm"])) {
         $errorMsg .= "Password and confirmation are required.<br>";
         $success = false;
     } else {
         // Make sure password match
-        if ($_POST["pwd"] != $_POST["pwd_confirm"]) {
+        if ($_POST["regpwd"] != $_POST["regpwd_confirm"]) {
             $errorMsg .= "Passwords do not match.<br>";
             $success = false;
         } else {
             // NOTE: We do not sanitize the password since this could strip out characters
             // That are meant to be part of the password. Instead, we will hash the password
             // Before storing it in our database, and NEVER output the plaintext password to the web page
-            $pwd_hashed = password_hash($_POST["pwd"], PASSWORD_DEFAULT);
+            $pwd_hashed = password_hash($_POST["regpwd"], PASSWORD_DEFAULT);
         }
     }
     

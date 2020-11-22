@@ -17,7 +17,7 @@ and open the template in the editor.
         <script defer 
                 src="js/logreg.js">
         </script>
-        
+
     </head>
     <body>
         <main class="logreg-container">
@@ -63,7 +63,7 @@ and open the template in the editor.
                                    id="email" name="email" placeholder="Email" required>
 
                         </div>
-                        
+
                         <div class="input-field">
 
                             <i class="fas fa-user"></i>
@@ -92,15 +92,17 @@ and open the template in the editor.
 
                             <i class="fas fa-lock"></i>
                             <input type="password" aria-label="Enter your password here to create an account." 
-                                   id="pwd" name="pwd" placeholder="Password" required>
-
+                                   id="regpwd" name="regpwd" placeholder="Password" required>
+                            <div class="progress">
+                                <div class="progress-bar" id="StrengthProgressBar" ></div>
+                            </div>
                         </div>
 
                         <div class="input-field">
 
                             <i class="fas fa-lock"></i>
                             <input type="password" aria-label="Re-enter your password to confirm your password" 
-                                   id="pwd_confirm" name="pwd_confirm" placeholder="Confirm Password" required>
+                                   id="regpwd_confirm" name="regpwd_confirm" placeholder="Confirm Password" required>
 
                         </div>
                         <button class="btn" type="submit">Sign up</button>
