@@ -12,7 +12,7 @@
         <?php
         include "googletranslate.php";
         ?>
-        <h4><b>Just a glance </b></h4>
+        <h4><b>Hello <?php echo $_SESSION['fname']; ?> ! </b></h4>
 
     </div>
 </div>
