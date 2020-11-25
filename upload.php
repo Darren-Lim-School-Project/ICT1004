@@ -63,7 +63,7 @@ session_start();
                         } else {
                             echo "<h2>This page is not meant to be run directly.</h2>";
                             echo "<p>You can login at the link below:</p>";
-                            echo "<a href='login.php'>Go to Login page...</a>";
+                            echo "<a href='index.php'>Go to Login page...</a>";
                         }
                         ?>
                             
