@@ -11,16 +11,16 @@ $imageId = "15";
 $memberId = $_SESSION['acc_id'];
 
 // Temp database connection
-//$servername = "localhost";
-//$username = "simplesqldev";
-//$password = "password";
-//$dbname = "SimpleGram";
-//$conn = new mysqli($servername, $username, $password, $dbname);
+$servername = "localhost";
+$username = "simplesqldev";
+$password = "password";
+$dbname = "SimpleGram";
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Create database connection.
-$config = parse_ini_file('../../../private/dbconfig.ini');
-$conn = new mysqli($config['servername'], $config['username'],
-        $config['password'], $config['dbname']);
+//$config = parse_ini_file('../../../private/dbconfig.ini');
+//$conn = new mysqli($config['servername'], $config['username'],
+//        $config['password'], $config['dbname']);
 
 // Get count of likes
 // Check connection

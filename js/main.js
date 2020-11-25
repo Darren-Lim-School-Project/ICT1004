@@ -20,7 +20,7 @@ $(document).ready(function () {
 
 function toggle() {
     var like = document.getElementById("like");
-
+    
     if (like.className === "like-border") {
         like.className = "like-black";
         like.src = "images/baseline_favorite_black_18dp.png";
