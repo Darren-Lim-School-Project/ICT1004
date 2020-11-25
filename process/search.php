@@ -8,29 +8,27 @@ $config = parse_ini_file('../../../private/dbconfig.ini');
         $errorMsg = "Connection failed: " . $conn->connect_error;
         
     } else {
-        if(isset($_REQUEST["term"])){
+        if(isset($_POST["query"])){
  
         // Prepare the statement:
-        $stmt = $conn->prepare("SELECT * FROM accounts WHERE  like ?");
+        $stmt = $conn->prepare("SELECT * FROM accounts WHERE uname like ?");
         
         // Bind & execute the query statement:
-        $stmt->bind_param("s", $parm_term);
-        
-        //set parameters
-        $parm_term= $_REQUEST["term"].'%';
+        $stmt->bind_param("s", $query);
         $stmt->execute();
+        $result = $stmt->get_result();
         if (!$stmt->execute()) {
             $errorMsg = "Execute failed: (" . $stmt->errno . ") " . $stmt->error;    
         }else{
            
-            $result = $stmt->get_result();
             if($result->num_rows > 0){
               //Fetch result rows as an array
                while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                    echo "<p>" . $row["uname"] . "</p>";
+                    echo $row["uname"]."<br/>";
                 }
             } else{
-                echo "<p>No matches found</p>";
+                echo "<p>No matches found </p>";
+                echo '<script>console.log('.$query.'</script>';
             }
                 
             

@@ -33,7 +33,7 @@ if ($conn->connect_error) {
                 text-align: center;
             }
         </style>
-        <script>
+<!--        <script>
             $('#addFriend, .input').click(function () {
                 $.post('process/add_friend.php',
                         {
@@ -63,7 +63,7 @@ if ($conn->connect_error) {
                             }
                         });
             });
-        </script>
+        </script>-->
     </head>
     <body>
         <?php
