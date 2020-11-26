@@ -26,8 +26,6 @@ if ($conn->connect_error) {
     <head>
         <?php
         include "head.inc.php";
-        ?>
-        <?php
         include "css.php";
         ?>
         <style>

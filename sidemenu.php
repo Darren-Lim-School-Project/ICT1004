@@ -1,7 +1,6 @@
 <!-- Sidebar/menu -->
-<?php
-include 'head.inc.php';
-?>
+
+
 <script type="text/javascript">
     $(document).ready(function(){
         /* Get input ono change*/

@@ -10,9 +10,9 @@ if ($conn->connect_error) {
 } else {
     // Prepare the statement:
     //$stmt = $conn->prepare("SELECT base64, caption FROM image");
-    
+
     $stmt = $conn->prepare("SELECT i.base64, i.caption, a.fname, a.lname FROM image i, accounts a WHERE i.acc_id = a.acc_id");
-    
+
     // Bind & execute the query statement:
     $stmt->execute();
     $result = $stmt->get_result();
@@ -21,19 +21,12 @@ if ($conn->connect_error) {
 }
 ?>
 <!DOCTYPE html>
-<html>  
+<html lang="en">  
     <head>
         <?php
         include "head.inc.php";
-        ?>
-        <?php
         include "css.php";
         ?>
-        <style>
-            p {
-                text-align: center;
-            }
-        </style>
         <script>
             $('#addFriend, .input').click(function () {
                 $.post('process/add_friend.php',
@@ -66,7 +59,7 @@ if ($conn->connect_error) {
             });
         </script>
     </head>
-    <body>
+    <body class="w3-light-grey w3-content" style="max-width:1600px">
         <?php
         include "sidemenu.php";
         ?>
