@@ -28,11 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     // Email address
-    if (empty($_POST["email"])) {
+    if (empty($_POST["regemail"])) {
         $errorMsg .= "Email is required.<br>";
         $success = false;
     } else {
-        $email = sanitize_input($_POST["email"]);
+        $email = sanitize_input($_POST["regemail"]);
         
         // Additional check to make sure email address is well formed.
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

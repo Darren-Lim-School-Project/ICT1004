@@ -29,22 +29,22 @@ session_start();
             <div class="w3-container w3-padding-88 center " id="us">
                 <main class="di" >
                     <?php
-                    //if (isset($_SESSION['acc_id'])) {
-                    echo '<form action="process/process_upload.php" class="sign-in-form" method="POST">';
-                    echo '<label for="uploader">Select a file:</label>';
-                    echo '<input type="file" id="uploader" accept=".jpg, .png, .jpeg">';
+                    if (isset($_SESSION['acc_id'])) {
+                        echo '<form action="process/process_upload.php" class="sign-in-form" method="POST">';
+                        echo '<label for="uploader">Select a file:</label>';
+                        echo '<input type="file" id="uploader" accept=".jpg, .png, .jpeg">';
 
-                    echo '<img id="image">';
-                    // Might change it to span method instead just to not be flagged by W3C HTML 5 Validator
+                        echo '<img id="image">';
+                        // Might change it to span method instead just to not be flagged by W3C HTML 5 Validator
 
-                    echo '<input type="hidden" id="b64" name="b64" value=""/>';
-                    echo '<button class="btn solid" type="submit">Upload</button>';
-                    echo '</form>';
-                    //} else {
-                    //    echo "<h2>This page is not meant to be run directly.</h2>";
-                    //    echo "<p>You can login at the link below:</p>";
-                    //    echo "<a href='index.php'>Go to Login page...</a>";
-                    //}
+                        echo '<input type="hidden" id="b64" name="b64" value=""/>';
+                        echo '<button class="btn solid" type="submit">Upload</button>';
+                        echo '</form>';
+                    } else {
+                        echo "<h2>This page is not meant to be run directly.</h2>";
+                        echo "<p>You can login at the link below:</p>";
+                        echo "<a href='index.php'>Go to Login page...</a>";
+                    }
                     ?>
                 </main>
             </div>
