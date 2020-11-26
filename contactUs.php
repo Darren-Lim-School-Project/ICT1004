@@ -13,7 +13,7 @@ session_start();
         ?>
     </head>
 
-    <body>
+    <body class="w3-light-grey w3-content" style="max-width:1600px">
         <?php
         include "sidemenu.php";
         ?>
