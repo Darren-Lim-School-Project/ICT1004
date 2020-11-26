@@ -135,6 +135,15 @@ if ($conn->connect_error) {
                     <input type="button" id="" formmethod="post" value="Add as Friend">
                     <div id="message_newfriend"></div>
 
+                    <script src="public/3b-comments.js"></script>
+                    <link href="public/3c-comments.css" rel="stylesheet">
+                    <div id="commentSection">
+                        <br>
+                        <br>
+                        <input type="hidden" id="post_id" value="999"/>
+                        <div id="comments"></div>
+                        <div id="reply-main"></div>
+                    </div>
                     <?php
                     include "foot.inc.php";
                     ?>
