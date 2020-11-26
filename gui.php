@@ -9,10 +9,11 @@ if ($conn->connect_error) {
     $success = false;
 } else {
     // Prepare the statement:
-    $stmt = $conn->prepare("SELECT base64, caption FROM image");
-
+    //$stmt = $conn->prepare("SELECT base64, caption FROM image");
+    
+    $stmt = $conn->prepare("SELECT i.base64, i.caption, a.fname, a.lname FROM image i, accounts a WHERE i.acc_id = a.acc_id");
+    
     // Bind & execute the query statement:
-    $stmt->bind_param("s", $_SESSION['acc_id']);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -82,10 +83,13 @@ if ($conn->connect_error) {
                         <?php
                         $images = array();
                         $captions = array();
-
+                        $fname = array();
+                        $lname = array();
                         while ($row = mysqli_fetch_assoc($result)) {
                             $images[] = $row["base64"];
                             $captions[] = $row["caption"];
+                            $fname[] = $row["fname"];
+                            $lname[] = $row["lname"];
                         }
 
                         $count = count($images);
@@ -96,7 +100,7 @@ if ($conn->connect_error) {
                                 <div class="w3-third w3-container w3-margin-bottom">
                                     <?php if ($images[$i] != null) { ?>
                                         <?php
-                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' >";
+                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
                                         ?>
                                         <div class="w3-container w3-white">
                                             <?php
@@ -109,7 +113,7 @@ if ($conn->connect_error) {
                                 <div class="w3-third w3-container w3-margin-bottom">
                                     <?php if ($images[$i] != null) { ?>
                                         <?php
-                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' >";
+                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
                                         ?>
                                         <div class="w3-container w3-white">
                                             <?php
@@ -122,7 +126,7 @@ if ($conn->connect_error) {
                                 <div class="w3-third w3-container">
                                     <?php if ($images[$i] != null) { ?>
                                         <?php
-                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' >";
+                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
                                         ?>
                                         <div class="w3-container w3-white">
                                             <?php
