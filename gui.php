@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     // Prepare the statement:
     //$stmt = $conn->prepare("SELECT base64, caption FROM image");
 
-    $stmt = $conn->prepare("SELECT i.base64, i.caption, a.fname, a.lname FROM image i, accounts a WHERE i.acc_id = a.acc_id");
+    $stmt = $conn->prepare("SELECT i.base64, i.caption, a.fname, a.lname, i.upload_date FROM image i, accounts a WHERE i.acc_id = a.acc_id ORDER BY i.upload_date DESC");
 
     // Bind & execute the query statement:
     $stmt->execute();
