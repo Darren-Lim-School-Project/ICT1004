@@ -128,6 +128,7 @@ class Comments {
   //       $name : name
   //       $message : comment message
   //       $rid : reply id
+  //       $accid : commenter's id
 
     $fields = "`post_id`, `name`, `message`";
     $values = "?, ?, ?";
