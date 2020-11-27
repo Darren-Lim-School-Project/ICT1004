@@ -42,7 +42,7 @@ function saveMemberToDB() {
     $conn->close();
 }
 ?>
-<html lang="en">
+<html>
     <head>
         <title>Image Upload Result</title>
         <?php
