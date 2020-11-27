@@ -84,7 +84,7 @@ function authenticateUser() {
                 $_SESSION['uname'] = $uname;
                 $_SESSION['email'] = $email;
                 if (isset($_SESSION['fname'])) {
-                    header('Location: ../gui.php');
+                    header('Location: ../gui.php?id='.$acc_id.'');
                 }
             }
         } else {
@@ -110,7 +110,7 @@ function authenticateUser() {
             if ($success) {
                 echo "<h3>Login successful!</h3>";
                 echo "<h4>Welcome back, " . $_SESSION['fname'] . " " . $_SESSION['lname'] . "</h4>";
-                echo "<a class=\"btn btn-primary\" href=\"..\gui.php\">Return to home</a>";
+                echo '<a class="btn btn-primary" href="..\gui.php?id='.$acc_id.'">Return to home</a>';
             } else {
                 echo "<h3>Oops!</h3>";
                 echo "<h4>The following errors were detected:</h4>";

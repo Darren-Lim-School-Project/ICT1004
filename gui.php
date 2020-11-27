@@ -1,6 +1,7 @@
 <?php
 session_start();
-$userpage=$_GET['id'];
+
+$urlId=$_GET['id'];
 $config = parse_ini_file('../../private/dbconfig.ini');
 $conn = new mysqli($config['servername'], $config['username'],
         $config['password'], $config['dbname']);
@@ -9,9 +10,9 @@ if ($conn->connect_error) {
     $success = false;
 } else {
     // Prepare the statement:
-    //$stmt = $conn->prepare("SELECT base64, caption FROM image");
-
-    $stmt = $conn->prepare("SELECT i.base64, i.caption, a.fname, a.lname, i.upload_date FROM image i, accounts a WHERE i.acc_id = a.acc_id ORDER BY i.upload_date DESC");
+    $stmt = $conn->prepare("SELECT base64, caption FROM image WHERE acc_id=?");
+    $stmt->bind_param("s", $urlId);
+    //$stmt = $conn->prepare("SELECT i.base64, i.caption, a.fname, a.lname, i.upload_date FROM image i, accounts a WHERE i.acc_id = a.acc_id ORDER BY i.upload_date DESC");
 
     // Bind & execute the query statement:
     $stmt->execute();
@@ -20,6 +21,7 @@ if ($conn->connect_error) {
     $stmt->close();
 }
 ?>
+<script>alert(<?php echo $urlId; ?>) </script>
 <!DOCTYPE html>
 <html lang="en">  
     <head>
