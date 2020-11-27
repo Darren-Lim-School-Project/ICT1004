@@ -34,7 +34,6 @@ if ($conn->connect_error) {
                 text-align: center;
             }
         </style>
-<
     </head>
     <body class="w3-light-grey w3-content" style="max-width:1600px">
         <?php

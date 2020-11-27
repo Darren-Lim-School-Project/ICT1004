@@ -28,8 +28,6 @@ $config = parse_ini_file('../../../private/dbconfig.ini');
             } else{
                 echo "<p>No matches found </p>";
             }
-                
-            
         }
         
         $stmt->close();
