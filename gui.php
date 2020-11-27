@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$userpage=$_GET['id'];
 $config = parse_ini_file('../../private/dbconfig.ini');
 $conn = new mysqli($config['servername'], $config['username'],
         $config['password'], $config['dbname']);
@@ -32,37 +32,7 @@ if ($conn->connect_error) {
                 text-align: center;
             }
         </style>
-<!--        <script>
-            $('#addFriend, .input').click(function () {
-                $.post('process/add_friend.php',
-                        {
-                            "id": $(this).attr('id')
-                        },
-                        function (response) {
-
-                            switch (response) {
-                                case 'Already friends':
-                                    $('#message_newfriend').html('<div id="alertFadeOut" style="color: green">Already friends!</div>');
-                                    $('#alertFadeOut').fadeOut(3000, function () {
-                                        $('#alertFadeOut').text('');
-                                    });
-                                    break;
-                                case 'Trying to add themselves':
-                                    $('#message_newfriend').html('<div id="alertFadeOut" style="color: red">You\'re trying to add yourself</div>');
-                                    $('#alertFadeOut').fadeOut(3000, function () {
-                                        $('#alertFadeOut').text('');
-                                    });
-                                    break;
-                                case 'Added as friend':
-                                    $('#message_newfriend').html('<div id="alertFadeOut" style="color: red">You\'re now friends!</div>');
-                                    $('#alertFadeOut').fadeOut(3000, function () {
-                                        $('#alertFadeOut').text('');
-                                    });
-                                    break;
-                            }
-                        });
-            });
-        </script>-->
+<
     </head>
     <body class="w3-light-grey w3-content" style="max-width:1600px">
         <?php

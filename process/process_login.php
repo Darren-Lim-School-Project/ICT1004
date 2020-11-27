@@ -103,9 +103,6 @@ function authenticateUser() {
         ?>
     </head>
     <body>
-        <?php
-            include "../nav.inc.php";
-        ?>
         
         <main class="container">
             

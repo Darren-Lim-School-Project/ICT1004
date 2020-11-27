@@ -22,12 +22,11 @@ $config = parse_ini_file('../../../private/dbconfig.ini');
            
             if($result->num_rows > 0){
               //Fetch result rows as an array
-               while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                    echo $row["uname"]."<br/>";
+               while($row = mysqli_fetch_assoc($result)){
+                    echo '<a href="gui.php?id='.$row["acc_id"].'">'.$row["uname"].'</a><br/>';
                 }
             } else{
                 echo "<p>No matches found </p>";
-                echo '<script>console.log('.$query.'</script>';
             }
                 
             

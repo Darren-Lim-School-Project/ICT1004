@@ -18,8 +18,8 @@
         <h4><b>Hello <?php echo $_SESSION['fname']; ?> ! </b></h4>
 
     </div>
-<div class="w3-bar-block">
-    <div class="search-box w3-bar-block">
+<div class="w3-bar-item w3-padding">
+    <div class="search-box">
         <input type="text" id="search" autocomplete="off" placeholder="User Search">
         <div id="result"></div>
     </div>

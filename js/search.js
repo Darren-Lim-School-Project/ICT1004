@@ -6,7 +6,7 @@
 
    $(document).ready(function(){
        $("#search").keyup(function(){
-          var query = $(this).val();
+          var query = $("#search").val();
           if (query != "") {
             $.ajax({
               url: 'process/search.php',
@@ -17,9 +17,7 @@
                 $("#result").html(data);
                 $("#result").css("display", 'block');
  
-                $("#search").focusout(function(){
-                    $("#result").css("display", 'none');
-                });
+                
                 $("#search").focusin(function(){
                     $('#result').css("display", 'block');
                 });
