@@ -105,7 +105,7 @@ function saveMemberToDB() {
     $conn->close();
 }
 ?>
-<html>
+<html lang="en">
     <head>
         <title>Registration Results</title>
         <?php
