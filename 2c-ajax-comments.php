@@ -37,9 +37,9 @@ switch ($_POST['req']) {
 	/* [SHOW REPLY FORM] */
   case "reply": ?>
 		<form onsubmit="return comments.add(this)" class="creplyform">
-      <h1>Leave a reply</h1>
+      <h1>Add a comment</h1>
       <input type="hidden" name="reply_id" value="<?=$_POST['reply_id']?>"/>
-      <input type="text" name="name" placeholder="Name" required/>
+      <input type="hidden" name="name" value="<?php echo $_SESSION['fname'] . ' ' . $_SESSION['lname']?>" required/>
       <textarea name="message" placeholder="Message" required></textarea>
       <input type="submit" class="cbutton" value="Post Comment"/>
     </form>

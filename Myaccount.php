@@ -1,9 +1,11 @@
 <?php
 session_start();
 
-$config = parse_ini_file('../../private/dbconfig.ini');
-$conn = new mysqli($config['servername'], $config['username'],
-        $config['password'], $config['dbname']);
+$conn = new mysqli('localhost', 'simplesqldev', 'password', 'SimpleGram');
+
+//$config = parse_ini_file('../../private/dbconfig.ini');
+//$conn = new mysqli($config['servername'], $config['username'],
+//        $config['password'], $config['dbname']);
 if ($conn->connect_error) {
     $errorMsg = "Connection failed: " . $conn->connect_error;
     $success = false;
@@ -19,13 +21,14 @@ if ($conn->connect_error) {
     $stmt->close();
 }
 ?>
+
+
+
 <!DOCTYPE html>
 <html>  
     <head>
         <?php
         include "head.inc.php";
-        ?>
-        <?php
         include "css.php";
         ?>
         <style>
@@ -107,7 +110,7 @@ if ($conn->connect_error) {
                                 </div>
                             </div>
                         <?php } ?>
-               
+                    
                     <?php
                     include "foot.inc.php";
                     ?>

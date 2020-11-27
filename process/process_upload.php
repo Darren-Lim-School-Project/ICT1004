@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 function saveMemberToDB() {
     global $base64, $caption, $errorMsg, $success;
     // Create database connection.
+    $curDateTime = date("Y-m-d H:i:s");
     $config = parse_ini_file('../../../private/dbconfig.ini');
     $conn = new mysqli($config['servername'], $config['username'],
             $config['password'], $config['dbname']);
@@ -28,10 +29,10 @@ function saveMemberToDB() {
         $success = false;
     } else {
         // Prepare the statement:
-        $stmt = $conn->prepare("INSERT INTO image (acc_id, base64, caption) VALUES (?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO image (acc_id, base64, caption, upload_date) VALUES (?, ?, ?, ?)");
         
         // Bind & execute the query statement:
-        $stmt->bind_param("sss", $_SESSION['acc_id'], $base64, $caption);
+        $stmt->bind_param("ssss", $_SESSION['acc_id'], $base64, $caption, $curDateTime);
         if (!$stmt->execute()) {
             $errorMsg = "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
             $success = false;

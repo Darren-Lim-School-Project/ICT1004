@@ -60,7 +60,7 @@ and open the template in the editor.
 
                             <i class="fas fa-envelope"></i>
                             <input type="email" aria-label="Enter your email here to create an account." 
-                                   id="email" name="email" placeholder="Email" required>
+                                   id="regemail" name="regemail" placeholder="Email" required>
 
                         </div>
 
