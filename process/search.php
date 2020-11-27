@@ -9,12 +9,11 @@ $config = parse_ini_file('../../../private/dbconfig.ini');
         
     } else {
         if(isset($_POST["query"])){
- 
+        $query=$_POST["query"];
         // Prepare the statement:
-        $stmt = $conn->prepare("SELECT * FROM accounts WHERE uname like ?");
+        $stmt = $conn->prepare("SELECT * FROM accounts WHERE uname like '$query%'");
         
         // Bind & execute the query statement:
-        $stmt->bind_param("s", $query);
         $stmt->execute();
         $result = $stmt->get_result();
         if (!$stmt->execute()) {
