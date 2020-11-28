@@ -122,7 +122,7 @@ class Comments {
     return count($comments) > 0 ? $comments : false;
   }
 
-  function add($pid, $name, $message, $rid) {
+  function add($pid, $name, $message, $accid, $rid) {
   // add() : add new comment
   // PARAM $pid : post ID
   //       $name : name
@@ -130,14 +130,14 @@ class Comments {
   //       $rid : reply id
   //       $accid : commenter's id
 
-    $fields = "`post_id`, `name`, `message`";
-    $values = "?, ?, ?";
+    $fields = "`post_id`, `name`, `message`, `commenter_id`";
+    $values = "?, ?, ?, ?";
 
     // Clean out HTML tags, prevent XSS
     $message = str_replace("<", "&lt;", $message);
     $message = str_replace(">", "&gt;", $message);
 
-    $cond = [$pid, $name, $message];
+    $cond = [$pid, $name, $message, $accid];
     if (is_numeric($rid)) {
       $fields .= ", `reply_id`";
       $values .= ", ?";
@@ -153,13 +153,13 @@ class Comments {
   //       $name : name
   //       $message : comment message
 
-    $sql = "UPDATE `comments` SET `name`=?, `message`=? WHERE `comment_id`=?;";
+    $sql = "UPDATE `comments` SET `message`=? WHERE `comment_id`=?;";
 
     // Clean out HTML tags, prevent XSS
     $message = str_replace("<", "&lt;", $message);
     $message = str_replace(">", "&gt;", $message);
 
-    return $this->exec($sql, [$name, $message, $cid]);
+    return $this->exec($sql, [$message, $cid]);
   }
 
   function delete($cid) {

@@ -50,7 +50,7 @@ switch ($_POST['req']) {
 	/* [ADD COMMENT] */
 	case "add":
             if ($_SESSION['acc_id']) {
-		echo $pdo->add($_POST['post_id'], $_POST['name'], $_POST['message'], $_POST['reply_id']) ? "OK" : "ERR";
+		echo $pdo->add($_POST['post_id'], $_POST['name'], $_POST['message'], $_SESSION['acc_id'], $_POST['reply_id']) ? "OK" : "ERR";
             } else { echo "ERR"; }
                 break;
 }

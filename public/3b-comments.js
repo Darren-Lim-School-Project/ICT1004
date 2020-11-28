@@ -41,6 +41,7 @@ var comments = {
   reply: function (cid, rid) {
   // reply() : load reply docket
   // PARAM cid : comment ID
+  //    acc_id : account ID
   //       rid : reply ID
 
     comments.ajax({
