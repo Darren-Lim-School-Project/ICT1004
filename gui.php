@@ -112,7 +112,6 @@ if ($conn->connect_error) {
                     <div id="message_newfriend"></div>
 
                     <script src="public/3b-comments.js"></script>
-                    <link href="public/3c-comments.css" rel="stylesheet">
                     <div id="commentSection">
                         <br>
                         <br>
