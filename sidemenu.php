@@ -10,7 +10,7 @@
         <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
             <i class="fa fa-remove"></i>
         </a>
-        <a href="gui.php"><img src="images/sp.jpg" alt="simplegram logo" style="width:100%;" class="w3-round"></a>
+        <a href="gui.php?id=<?php echo $_SESSION['acc_id'] ?>"><img src="images/sp.jpg" alt="simplegram logo" style="width:100%;" class="w3-round"></a>
        
         <?php
         include "googletranslate.php";
@@ -18,13 +18,14 @@
         <h4><b>Hello <?php echo $_SESSION['fname']; ?> ! </b></h4>
 
     </div>
-<div class="w3-bar-item w3-padding">
-    <div class="search-box">
+    <div class="search-box w3-bar-item w3-padding">
         <input type="text" id="search" autocomplete="off" placeholder="User Search">
         <div id="result"></div>
     </div>
+<div class="w3-bar-item w3-padding">
+    
 
-    <a href="gui.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
+    <a href='gui.php?id=<?php echo $_SESSION['acc_id'] ?>' onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
         <i class=" fa fa-address-card-o fa-fw w3-margin-right"></i>My SimpleGram</a> 
         
     <a href="aboutUs.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">

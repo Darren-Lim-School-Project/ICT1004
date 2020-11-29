@@ -6,5 +6,11 @@
     p {
         text-align: center;
     }
+    
+    nav
+    {
+        font-size: 16px;
+    }
+    
 </style>
 <!--<body class="w3-light-grey w3-content" style="max-width:1600px">-->

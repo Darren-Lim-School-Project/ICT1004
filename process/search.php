@@ -26,7 +26,7 @@ $config = parse_ini_file('../../../private/dbconfig.ini');
                     echo '<a href="gui.php?id='.$row["acc_id"].'">'.$row["uname"].'</a><br/>';
                 }
             } else{
-                echo "<p>No matches found </p>";
+                echo "No matches found <br/>";
             }
         }
         

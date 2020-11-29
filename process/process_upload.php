@@ -48,12 +48,9 @@ function saveMemberToDB() {
         <?php
             include "../head.inc.php";
         ?>
-        <meta http-equiv="refresh" content="5;url=../gui.php" />
+        <meta http-equiv="refresh" content="5;url=../gui.php?id=<?php echo $_SESSION['acc_id'] ?>" />
     </head>
     <body>
-        <?php
-            include "../nav.inc.php";
-        ?>
         <main class="container">
             
             <?php

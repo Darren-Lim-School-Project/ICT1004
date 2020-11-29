@@ -20,11 +20,13 @@
                 
                 $("#search").focusin(function(){
                     $('#result').css("display", 'block');
+                    
                 });
               }
             });
           } else {
           $('#result').css('display', 'none');
+          $('#result').css('border', 'none');
         }
       });
     });

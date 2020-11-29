@@ -2,11 +2,12 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
-            $('#addFriend, .input').click(function () {
-                $.post('process/add_friend.php',
+ */     
+    $(document).ready(function(){
+         $(".addFriend").click(function () {
+                $.post('process/addFriend.php',
                         {
-                            "id": $(this).attr('id')
+                            "id": $(".addFriend").attr('id')
                         },
                         function (response) {
 
@@ -31,4 +32,5 @@
                                     break;
                             }
                         });
-            });
+            });   
+        });
