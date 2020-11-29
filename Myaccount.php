@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     $success = false;
 } else {
     // Prepare the statement:
-    $stmt = $conn->prepare("SELECT base64, caption FROM image WHERE acc_id=?");
+    $stmt = $conn->prepare("SELECT * FROM image WHERE acc_id=?");
 
     // Bind & execute the query statement:
     $stmt->bind_param("s", $_SESSION['acc_id']);
@@ -22,11 +22,11 @@ if ($conn->connect_error) {
 }
 ?>
 
-
-
 <!DOCTYPE html>
 <html>  
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
         <?php
         include "head.inc.php";
         include "css.php";
@@ -35,8 +35,32 @@ if ($conn->connect_error) {
             p {
                 text-align: center;
             }
+            .btn-warning, .btn-warning:hover {
+                background-color: #dc3545;
+            }
         </style>
-       
+        <script>
+            $(document).ready(function () {
+                $(".btn-warning").click(function () {
+                    var image_id = $(this).attr("id");
+                    $.ajax({
+                        type: "POST",
+                        url: "process/process_delete_image.php",
+                        data: {
+                            "image_id": image_id
+                        },
+                        success: function (data) {
+                            var dataResult = JSON.parse(data);
+                            if (dataResult.statusCode == 200) {
+                                location.reload();
+                            } else {
+                                console.log("Deletion error!");
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
     </head>
     <body>
         <?php
@@ -56,27 +80,32 @@ if ($conn->connect_error) {
                         //Two array for storing picture and captions 
                         $images = array();
                         $captions = array();
+                        $image_ids = array();
                         // fetch from data base
-  
+
                         while ($row = mysqli_fetch_assoc($result)) {
                             $images[] = $row["base64"];
                             $captions[] = $row["caption"];
+                            $image_ids[] = $row["image_id"];
                         }
-                       // connect to dbs
+                        // connect to dbs
                         $count = count($images);
                         ?> 
-                         <!-- Create a loop for the counting the things inserted-->
+                        <!-- Create a loop for the counting the things inserted-->
                         <?php for ($i = 0; $i < $count;) { ?>
-                           <!--set 3 rows to put image  -->
+                            <!--set 3 rows to put image  -->
                             <div class="w3-row-padding">
                                 <div class="w3-third w3-container w3-margin-bottom">
                                     <?php if ($images[$i] != null) { ?> <!--if there is image will fetch from db -->
                                         <?php
-                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' >"; 
+                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' >";
                                         ?> 
                                         <div class="w3-container w3-white">
                                             <?php
                                             echo "<p><b>" . $captions[$i] . "</b></p>";
+                                            echo '<div class="row justify-content-center">';
+                                            echo '<button id="' . $image_ids[$i] . '" class="btn btn-warning">Delete</button>';
+                                            echo "</div>";
                                             $i++;
                                             ?>
                                         </div>
@@ -90,6 +119,9 @@ if ($conn->connect_error) {
                                         <div class="w3-container w3-white">
                                             <?php
                                             echo "<p><b>" . $captions[$i] . "</b></p>";
+                                            echo '<div class="row justify-content-center">';
+                                            echo '<button id="' . $image_ids[$i] . '" class="btn btn-warning">Delete</button>';
+                                            echo "</div>";
                                             $i++;
                                             ?>
                                         </div>
@@ -103,6 +135,9 @@ if ($conn->connect_error) {
                                         <div class="w3-container w3-white">
                                             <?php
                                             echo "<p><b>" . $captions[$i] . "</b></p>";
+                                            echo '<div class="row justify-content-center">';
+                                            echo '<button id="' . $image_ids[$i] . '" class="btn btn-warning">Delete</button>';
+                                            echo "</div>";
                                             $i++;
                                             ?>
                                         </div>
@@ -110,13 +145,13 @@ if ($conn->connect_error) {
                                 </div>
                             </div>
                         <?php } ?>
-                    
-                    <?php
-                    include "foot.inc.php";
-                    ?>
-                    <!-- End page content -->
+
+                        <?php
+                        include "foot.inc.php";
+                        ?>
+                        <!-- End page content -->
+                    </div>
                 </div>
             </div>
-        </div>
     </body>
 </html>
