@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "<h2>This page is not meant to be run directly.</h2>";
         echo "<p>You can register at the link below:</p>";
-        echo "<a href='../myaccount.php'>Go to Sign up page...</a>";
+        echo "<a href='../index.php'>Go to Sign up page...</a>";
     }
     exit();
 }
@@ -93,9 +93,6 @@ function saveMemberToDB() {
         <meta http-equiv="refresh" content="5;url=../myaccount.php" />
     </head>
     <body>
-        <?php
-        include "../nav.inc.php";
-        ?>
 
         <main class="container">
 
