@@ -11,7 +11,7 @@ and open the template in the editor.
 
 footer {
     border-style: solid none none none;
-    color: gray;
+    color: #303030;
     font-style: italic;
     text-align: center;
     font-size: small;
@@ -520,10 +520,14 @@ di {
   padding: 10px;
 }
 .cbutton{
-  background: #db4104;
+  background: #9F2F04;
   border: 0;
   color: #fff;
   padding: 5px;
   margin: 10px 0;
   cursor: pointer;
+}
+
+.mainheader {
+    color: #333333;
 }

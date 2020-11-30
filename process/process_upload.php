@@ -6,8 +6,8 @@ $success = true;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $base64 = $_POST["b64"];
-    $caption = $_POST["caption"];
-    saveMemberToDB();
+    $caption = sanitize_input($_POST["caption"]);
+    saveImageToDB();
 } else {
     echo "<h2>This page is not meant to be run directly.</h2>";
     echo "<p>You can register at the link below:</p>";
@@ -15,7 +15,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 
-function saveMemberToDB() {
+function sanitize_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+function saveImageToDB() {
     global $base64, $caption, $errorMsg, $success;
     // Create database connection.
     $curDateTime = date("Y-m-d H:i:s");

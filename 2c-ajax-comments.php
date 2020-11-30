@@ -50,7 +50,8 @@ switch ($_POST['req']) {
                 <h1>Add a comment</h1>
                 <input type="hidden" name="reply_id" value="<?= $_POST['reply_id'] ?>"/>
                 <input type="hidden" name="name" value="<?php echo $_SESSION['fname'] . ' ' . $_SESSION['lname'] ?>" required/>
-                <textarea name="message" placeholder="Message" required></textarea>
+                <label for="message">Write your comment below:</label>
+                <textarea name="message" id="message" placeholder="Message" required></textarea>
                 <input type="submit" class="cbutton" value="Post Comment"/>
             </form>
         <?php

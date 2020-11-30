@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$urlId=$_GET['id'];
+$urlId = $_GET['id'];
 $config = parse_ini_file('../../private/dbconfig.ini');
 $conn = new mysqli($config['servername'], $config['username'],
         $config['password'], $config['dbname']);
@@ -13,7 +13,6 @@ if ($conn->connect_error) {
     $stmt = $conn->prepare("SELECT base64, caption FROM image WHERE acc_id=?");
     $stmt->bind_param("s", $urlId);
     //$stmt = $conn->prepare("SELECT i.base64, i.caption, a.fname, a.lname, i.upload_date FROM image i, accounts a WHERE i.acc_id = a.acc_id ORDER BY i.upload_date DESC");
-
     // Bind & execute the query statement:
     $stmt->execute();
     $result = $stmt->get_result();
@@ -21,7 +20,7 @@ if ($conn->connect_error) {
     $stmt->close();
 }
 ?>
-<script>alert(<?php echo $urlId; ?>) </script>
+<script>alert(<?php echo $urlId; ?>)</script>
 <!DOCTYPE html>
 <html lang="en">  
     <head>
@@ -46,84 +45,91 @@ if ($conn->connect_error) {
         <div class="w3-main" style="margin-left:300px">
             <div class="w3-container w3-padding-64  w3-light-blue w3-grayscale-min" id="us">
                 <div class="w3-content">
-                    <h1 class="w3-center w3-text-grey"><b>My Pictures</b></h1>
+
+                    <header>
+                        <h1 class="w3-center mainheader"><b>My Pictures</b></h1>
+                    </header>
+
                     <br>
-                    <div class="gallery">
-                        <?php
-                        $images = array();
-                        $captions = array();
-                        $fname = array();
-                        $lname = array();
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            $images[] = $row["base64"];
-                            $captions[] = $row["caption"];
-                            $fname[] = $row["fname"];
-                            $lname[] = $row["lname"];
-                        }
+                    <main>
+                        <div class="gallery">
+                            <?php
+                            $images = array();
+                            $captions = array();
+                            $fname = array();
+                            $lname = array();
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $images[] = $row["base64"];
+                                $captions[] = $row["caption"];
+                                $fname[] = $row["fname"];
+                                $lname[] = $row["lname"];
+                            }
 
-                        $count = count($images);
-                        ?>
-                        <?php for ($i = 0; $i < $count;) { ?>
-                            <!-- First Photo Grid-->
-                            <div class="w3-row-padding">
-                                <div class="w3-third w3-container w3-margin-bottom">
-                                    <?php if ($images[$i] != null) { ?>
-                                        <?php
-                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
-                                        ?>
-                                        <div class="w3-container w3-white">
+                            $count = count($images);
+                            ?>
+                            <?php for ($i = 0; $i < $count;) { ?>
+                                <!-- First Photo Grid-->
+                                <div class="w3-row-padding">
+                                    <div class="w3-third w3-container w3-margin-bottom">
+                                        <?php if ($images[$i] != null) { ?>
                                             <?php
-                                            echo "<p><b>" . $captions[$i] . "</b></p>";
-                                            $i++;
+                                            echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
                                             ?>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                                <div class="w3-third w3-container w3-margin-bottom">
-                                    <?php if ($images[$i] != null) { ?>
-                                        <?php
-                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
-                                        ?>
-                                        <div class="w3-container w3-white">
+                                            <div class="w3-container w3-white">
+                                                <?php
+                                                echo "<p><b>" . $captions[$i] . "</b></p>";
+                                                $i++;
+                                                ?>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                    <div class="w3-third w3-container w3-margin-bottom">
+                                        <?php if ($images[$i] != null) { ?>
                                             <?php
-                                            echo "<p><b>" . $captions[$i] . "</b></p>";
-                                            $i++;
+                                            echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
                                             ?>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                                <div class="w3-third w3-container">
-                                    <?php if ($images[$i] != null) { ?>
-                                        <?php
-                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
-                                        ?>
-                                        <div class="w3-container w3-white">
+                                            <div class="w3-container w3-white">
+                                                <?php
+                                                echo "<p><b>" . $captions[$i] . "</b></p>";
+                                                $i++;
+                                                ?>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                    <div class="w3-third w3-container">
+                                        <?php if ($images[$i] != null) { ?>
                                             <?php
-                                            echo "<p><b>" . $captions[$i] . "</b></p>";
-                                            $i++;
+                                            echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
                                             ?>
-                                        </div>
-                                    <?php } ?>
+                                            <div class="w3-container w3-white">
+                                                <?php
+                                                echo "<p><b>" . $captions[$i] . "</b></p>";
+                                                $i++;
+                                                ?>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
                                 </div>
-                            </div>
-                        <?php } ?>
-                    </div>
-                    <input type="button" id="" formmethod="post" value="Add as Friend">
-                    <div id="message_newfriend"></div>
+                            <?php } ?>
+                        </div>
+                        <input type="button" id="" formmethod="post" value="Add as Friend">
+                        <div id="message_newfriend"></div>
 
-                    <script src="public/3b-comments.js"></script>
-                    <div id="commentSection">
-                        <br>
-                        <br>
-                        <input type="hidden" id="post_id" value="999"/>
-                        <div id="comments"></div>
-                        <div id="reply-main"></div>
-                    </div>
-                    <?php
-                    include "foot.inc.php";
-                    ?>
-                    <!-- End page content -->
+                        <script src="public/3b-comments.js"></script>
+                        <div id="commentSection">
+                            <br>
+                            <br>
+                            <input type="hidden" id="post_id" value="999"/>
+                            <div id="comments"></div>
+                            <div id="reply-main"></div>
+                        </div>
+                    </main>
+
                 </div>
+                <?php
+                include "foot.inc.php";
+                ?>
+                <!-- End page content -->
             </div>
         </div>
     </body>

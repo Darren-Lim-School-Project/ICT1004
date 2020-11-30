@@ -24,7 +24,7 @@ and open the template in the editor.
             <div class="forms-container">
                 <div class="signin-signup">
                     <form action="process/process_login.php" class="sign-in-form" method="POST">
-                        <h2 class="title">Sign in</h2>
+                        <h1 class="title">Sign in</h1>
 
                         <div class="input-field">
                             <i class="fas fa-user"></i>
@@ -54,7 +54,7 @@ and open the template in the editor.
                         </div>
                     </form>
                     <form action="process/process_register.php" class="sign-up-form" method="POST">
-                        <h2 class="title">Sign up</h2>
+                        <h1 class="title">Sign up</h1>
 
                         <div class="input-field">
 
@@ -122,7 +122,7 @@ and open the template in the editor.
             <div class="panels-container">
                 <div class="panel left-panel">
                     <div class="content">
-                        <h3>New here?</h3>
+                        <h2>New here?</h2>
                         <p>
                             Create an account here!
                         </p>
@@ -134,7 +134,7 @@ and open the template in the editor.
                 </div>
                 <div class="panel right-panel">
                     <div class="content">
-                        <h3>One of us?</h3>
+                        <h2>One of us?</h2>
                         <p>
                             Have an account? Sign in here!
                         </p>

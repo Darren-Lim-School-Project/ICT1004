@@ -81,7 +81,7 @@ function togglePopout() {
         popout = document.createElement("span");
         popout.id = CAPTION_POPOUT;
         var big_image
-        popout.innerHTML = '<textarea id="caption" name="caption" rows="4" cols="50"></textarea>';
+        popout.innerHTML = '<br><label for="caption">Caption</label><br><textarea id="caption" name="caption" rows="4" cols="50"></textarea>';
         document.getElementById("image").insertAdjacentElement("afterend", popout);
     } else {
         $("#" + CAPTION_POPOUT).remove();
