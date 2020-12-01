@@ -20,7 +20,11 @@ if ($conn->connect_error) {
     $stmt->close();
 }
 ?>
+
+<!--
 <script>alert(<?php echo $urlId; ?>)</script>
+-->
+
 <!DOCTYPE html>
 <html lang="en">  
     <head>

@@ -23,7 +23,7 @@ if ($conn->connect_error) {
 ?>
 
 <!DOCTYPE html>
-<html>  
+<html lang="en">  
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -73,85 +73,141 @@ if ($conn->connect_error) {
         <div class="w3-main" style="margin-left:300px">
             <div class="w3-container w3-padding-64  w3-light-blue w3-grayscale-min" id="us">
                 <div class="w3-content">
-                    <h1 class="w3-center w3-text-grey"><b>My Pictures</b></h1>
-                    <br>
-                    <div class="gallery">
-                        <?php
-                        //Two array for storing picture and captions 
-                        $images = array();
-                        $captions = array();
-                        $image_ids = array();
-                        // fetch from data base
 
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            $images[] = $row["base64"];
-                            $captions[] = $row["caption"];
-                            $image_ids[] = $row["image_id"];
-                        }
-                        // connect to dbs
-                        $count = count($images);
-                        ?> 
-                        <!-- Create a loop for the counting the things inserted-->
-                        <?php for ($i = 0; $i < $count;) { ?>
-                            <!--set 3 rows to put image  -->
-                            <div class="w3-row-padding">
-                                <div class="w3-third w3-container w3-margin-bottom">
-                                    <?php if ($images[$i] != null) { ?> <!--if there is image will fetch from db -->
-                                        <?php
-                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' >";
-                                        ?> 
-                                        <div class="w3-container w3-white">
-                                            <?php
-                                            echo "<p><b>" . $captions[$i] . "</b></p>";
-                                            echo '<div class="row justify-content-center">';
-                                            echo '<button id="' . $image_ids[$i] . '" class="btn btn-warning">Delete</button>';
-                                            echo "</div>";
-                                            $i++;
-                                            ?>
+                    <header>
+                        <h1 class="w3-center mainheader"><b>My Account</b></h1>
+                    </header>
+
+                    <main>
+
+                        <section>
+                            <form action="process/process_edit.php" class="sign-in-form" method="POST">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <label for="edit_pwd">Old Password:</label>
+                                        </td>
+                                        <td>
+                                            <input type="password" aria-label="Enter your old password." 
+                                                   id="edit_pwd" name="edit_pwd">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label for="edit_npwd">New Password:</label>
+                                        </td>
+                                        <td>
+                                            <input type="password" aria-label="Enter your new password." 
+                                                   id="edit_npwd" name="edit_npwd">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label for="edit_cpwd">Confirm New Password:</label>
+                                        </td>
+                                        <td>
+                                            <input type="password" aria-label="Confirm your new password." 
+                                                   id="edit_cpwd" name="edit_cpwd">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button class="btn btn-warning" type="submit">Save</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </section>
+
+                        <hr />
+
+                        <section>
+                            <div class="gallery">
+                                <?php
+                                //Two array for storing picture and captions 
+                                $images = array();
+                                $captions = array();
+                                $image_ids = array();
+                                $fname = array();
+                                $lname = array();
+                                // fetch from data base
+
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $images[] = $row["base64"];
+                                    $captions[] = $row["caption"];
+                                    $image_ids[] = $row["image_id"];
+                                    $fname[] = $row["fname"];
+                                    $lname[] = $row["lname"];
+                                }
+                                // connect to dbs
+                                $count = count($images);
+                                ?> 
+                                <!-- Create a loop for the counting the things inserted-->
+                                <?php for ($i = 0; $i < $count;) { ?>
+                                    <!--set 3 rows to put image  -->
+                                    <div class="w3-row-padding">
+                                        <div class="w3-third w3-container w3-margin-bottom">
+                                            <?php if ($images[$i] != null) { ?> <!--if there is image will fetch from db -->
+                                                <?php
+                                                echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
+                                                ?> 
+                                                <div class="w3-container w3-white">
+                                                    <?php
+                                                    echo "<p><b>" . $captions[$i] . "</b></p>";
+                                                    echo '<div class="row justify-content-center">';
+                                                    echo '<button id="' . $image_ids[$i] . '" class="btn btn-warning">Delete</button>';
+                                                    echo "</div>";
+                                                    $i++;
+                                                    ?>
+                                                </div>
+                                            <?php } ?>
                                         </div>
-                                    <?php } ?>
-                                </div>
-                                <div class="w3-third w3-container w3-margin-bottom">
-                                    <?php if ($images[$i] != null) { ?>
-                                        <?php
-                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' >";
-                                        ?>
-                                        <div class="w3-container w3-white">
-                                            <?php
-                                            echo "<p><b>" . $captions[$i] . "</b></p>";
-                                            echo '<div class="row justify-content-center">';
-                                            echo '<button id="' . $image_ids[$i] . '" class="btn btn-warning">Delete</button>';
-                                            echo "</div>";
-                                            $i++;
-                                            ?>
+                                        <div class="w3-third w3-container w3-margin-bottom">
+                                            <?php if ($images[$i] != null) { ?>
+                                                <?php
+                                                echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
+                                                ?>
+                                                <div class="w3-container w3-white">
+                                                    <?php
+                                                    echo "<p><b>" . $captions[$i] . "</b></p>";
+                                                    echo '<div class="row justify-content-center">';
+                                                    echo '<button id="' . $image_ids[$i] . '" class="btn btn-warning">Delete</button>';
+                                                    echo "</div>";
+                                                    $i++;
+                                                    ?>
+                                                </div>
+                                            <?php } ?>
                                         </div>
-                                    <?php } ?>
-                                </div>
-                                <div class="w3-third w3-container">
-                                    <?php if ($images[$i] != null) { ?>
-                                        <?php
-                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' >";
-                                        ?>
-                                        <div class="w3-container w3-white">
-                                            <?php
-                                            echo "<p><b>" . $captions[$i] . "</b></p>";
-                                            echo '<div class="row justify-content-center">';
-                                            echo '<button id="' . $image_ids[$i] . '" class="btn btn-warning">Delete</button>';
-                                            echo "</div>";
-                                            $i++;
-                                            ?>
+                                        <div class="w3-third w3-container">
+                                            <?php if ($images[$i] != null) { ?>
+                                                <?php
+                                                echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
+                                                ?>
+                                                <div class="w3-container w3-white">
+                                                    <?php
+                                                    echo "<p><b>" . $captions[$i] . "</b></p>";
+                                                    echo '<div class="row justify-content-center">';
+                                                    echo '<button id="' . $image_ids[$i] . '" class="btn btn-warning">Delete</button>';
+                                                    echo "</div>";
+                                                    $i++;
+                                                    ?>
+                                                </div>
+                                            <?php } ?>
                                         </div>
-                                    <?php } ?>
-                                </div>
+                                    </div>
+                                <?php } ?>
+
                             </div>
-                        <?php } ?>
-
-                        <?php
-                        include "foot.inc.php";
-                        ?>
-                        <!-- End page content -->
-                    </div>
+                        </section>
+                    </main>
                 </div>
+                <?php
+                include "foot.inc.php";
+                ?>
+                <!-- End page content -->
             </div>
+        </div>
     </body>
 </html>
