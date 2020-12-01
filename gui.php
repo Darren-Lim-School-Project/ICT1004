@@ -10,7 +10,7 @@ if ($conn->connect_error) {
     $success = false;
 } else {
     // Prepare the statement:
-    $stmt = $conn->prepare("SELECT base64, caption FROM image WHERE acc_id=?");
+    $stmt = $conn->prepare("SELECT image_id, base64, caption FROM image WHERE acc_id=?");
     $stmt->bind_param("s", $urlId);
     //$stmt = $conn->prepare("SELECT i.base64, i.caption, a.fname, a.lname, i.upload_date FROM image i, accounts a WHERE i.acc_id = a.acc_id ORDER BY i.upload_date DESC");
     // Bind & execute the query statement:
@@ -20,17 +20,13 @@ if ($conn->connect_error) {
     $stmt->close();
 }
 ?>
-
-<!--
-<script>alert(<?php echo $urlId; ?>)</script>
--->
-
 <!DOCTYPE html>
 <html lang="en">  
     <head>
         <?php
         include "head.inc.php";
         include "css.php";
+        include "server.php";
         ?>
         <style>
             p {
@@ -49,91 +45,154 @@ if ($conn->connect_error) {
         <div class="w3-main" style="margin-left:300px">
             <div class="w3-container w3-padding-64  w3-light-blue w3-grayscale-min" id="us">
                 <div class="w3-content">
-
-                    <header>
-                        <h1 class="w3-center mainheader"><b>My Pictures</b></h1>
-                    </header>
-
+                    <h1 class="w3-center w3-text-grey"><b>My Pictures</b></h1>
                     <br>
-                    <main>
-                        <div class="gallery">
-                            <?php
-                            $images = array();
-                            $captions = array();
-                            $fname = array();
-                            $lname = array();
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                $images[] = $row["base64"];
-                                $captions[] = $row["caption"];
-                                $fname[] = $row["fname"];
-                                $lname[] = $row["lname"];
-                            }
+                    <div class="gallery">
+                        <?php
+                        $images = array();
+                        $captions = array();
+                        $fname = array();
+                        $lname = array();
+                        $postId = array();
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $images[] = $row["base64"];
+                            $captions[] = $row["caption"];
+                            $fname[] = $row["fname"];
+                            $lname[] = $row["lname"];
+                            $postId[] = $row["image_id"];
+                        }
+                        $count = count($images);
+                        ?>
+                        <?php for ($i = 0; $i < $count;) { ?>
+                            <!-- First Photo Grid-->
+                            <div class="w3-row-padding">
+                                <div class="w3-third w3-container w3-margin-bottom">
+                                    <?php if ($images[$i] != null) { ?>
+                                        <?php
+                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
+                                        ?>
+                                        <div class="w3-container w3-white">
+                                            <?php
+                                            echo "<p><b>" . $captions[$i] . "</b></p>";
+                                            ?>
+                                            <div class="post-info">
+                                                <!-- If user likes post, style button differently -->
+                                                <i <?php if (userLiked($postId[$i])): ?>
+                                                        class="fa fa-thumbs-up like-btn"
+                                                    <?php else: ?>
+                                                        class="fa fa-thumbs-o-up like-btn"
+                                                    <?php endif ?>
+                                                    data-id="<?php echo $postId[$i] ?>"></i>
+                                                <span class="likes"><?php echo getLikes($postId[$i]); ?></span>
 
-                            $count = count($images);
-                            ?>
-                            <?php for ($i = 0; $i < $count;) { ?>
-                                <!-- First Photo Grid-->
-                                <div class="w3-row-padding">
-                                    <div class="w3-third w3-container w3-margin-bottom">
-                                        <?php if ($images[$i] != null) { ?>
-                                            <?php
-                                            echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
-                                            ?>
-                                            <div class="w3-container w3-white">
-                                                <?php
-                                                echo "<p><b>" . $captions[$i] . "</b></p>";
-                                                $i++;
-                                                ?>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                                                <!-- If user dislikes post, style button differently -->
+                                                <i <?php if (userDisliked($postId[$i])): ?>
+                                                        class="fa fa-thumbs-down dislike-btn"
+                                                    <?php else: ?>
+                                                        class="fa fa-thumbs-o-down dislike-btn"
+                                                    <?php endif ?>
+                                                    data-id="<?php echo $postId[$i] ?>"></i>
+                                                <span class="dislikes"><?php echo getDislikes($postId[$i]); ?></span>
                                             </div>
-                                        <?php } ?>
-                                    </div>
-                                    <div class="w3-third w3-container w3-margin-bottom">
-                                        <?php if ($images[$i] != null) { ?>
                                             <?php
-                                            echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
+                                            $i++;
                                             ?>
-                                            <div class="w3-container w3-white">
-                                                <?php
-                                                echo "<p><b>" . $captions[$i] . "</b></p>";
-                                                $i++;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
-                                    </div>
-                                    <div class="w3-third w3-container">
-                                        <?php if ($images[$i] != null) { ?>
-                                            <?php
-                                            echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
-                                            ?>
-                                            <div class="w3-container w3-white">
-                                                <?php
-                                                echo "<p><b>" . $captions[$i] . "</b></p>";
-                                                $i++;
-                                                ?>
-                                            </div>
-                                        <?php } ?>
-                                    </div>
+                                        </div>
+                                    <?php } ?>
                                 </div>
-                            <?php } ?>
-                        </div>
-                        <input type="button" id="" formmethod="post" value="Add as Friend">
-                        <div id="message_newfriend"></div>
+                                <div class="w3-third w3-container w3-margin-bottom">
+                                    <?php if ($images[$i] != null) { ?>
+                                        <?php
+                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
+                                        ?>
+                                        <div class="w3-container w3-white">
+                                            <?php
+                                            echo "<p><b>" . $captions[$i] . "</b></p>";
+                                            ?>
+                                            <div class="post-info">
+                                                <!-- if user likes post, style button differently -->
+                                                <i <?php if (userLiked($postId[$i])): ?>
+                                                        class="fa fa-thumbs-up like-btn"
+                                                    <?php else: ?>
+                                                        class="fa fa-thumbs-o-up like-btn"
+                                                    <?php endif ?>
+                                                    data-id="<?php echo $postId[$i] ?>"></i>
+                                                <span class="likes"><?php echo getLikes($postId[$i]); ?></span>
 
-                        <script src="public/3b-comments.js"></script>
-                        <div id="commentSection">
-                            <br>
-                            <br>
-                            <input type="hidden" id="post_id" value="999"/>
-                            <div id="comments"></div>
-                            <div id="reply-main"></div>
-                        </div>
-                    </main>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
 
+                                                <!-- if user dislikes post, style button differently -->
+                                                <i <?php if (userDisliked($postId[$i])): ?>
+                                                        class="fa fa-thumbs-down dislike-btn"
+                                                    <?php else: ?>
+                                                        class="fa fa-thumbs-o-down dislike-btn"
+                                                    <?php endif ?>
+                                                    data-id="<?php echo $postId[$i] ?>"></i>
+                                                <span class="dislikes"><?php echo getDislikes($postId[$i]); ?></span>
+                                            </div>
+                                            <?php
+                                            $i++;
+                                            ?>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                                <div class="w3-third w3-container">
+                                    <?php if ($images[$i] != null) { ?>
+                                        <?php
+                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
+                                        ?>
+                                        <div class="w3-container w3-white">
+                                            <?php
+                                            echo "<p><b>" . $captions[$i] . "</b></p>";
+                                            ?>
+                                            <div class="post-info">
+                                                <!-- if user likes post, style button differently -->
+                                                <i <?php if (userLiked($postId[$i])): ?>
+                                                        class="fa fa-thumbs-up like-btn"
+                                                    <?php else: ?>
+                                                        class="fa fa-thumbs-o-up like-btn"
+                                                    <?php endif ?>
+                                                    data-id="<?php echo $postId[$i] ?>"></i>
+                                                <span class="likes"><?php echo getLikes($postId[$i]); ?></span>
+
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                                                <!-- if user dislikes post, style button differently -->
+                                                <i <?php if (userDisliked($postId[$i])): ?>
+                                                        class="fa fa-thumbs-down dislike-btn"
+                                                    <?php else: ?>
+                                                        class="fa fa-thumbs-o-down dislike-btn"
+                                                    <?php endif ?>
+                                                    data-id="<?php echo $postId[$i] ?>"></i>
+                                                <span class="dislikes"><?php echo getDislikes($postId[$i]); ?></span>
+                                            </div>
+                                            <?php
+                                            $i++;
+                                            ?>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                    <input type="button" id="" formmethod="post" value="Add as Friend">
+                    <div id="message_newfriend"></div>
+
+                    <script src="public/3b-comments.js"></script>
+                    <div id="commentSection">
+                        <br>
+                        <br>
+                        <input type="hidden" id="post_id" value="999"/>
+                        <div id="comments"></div>
+                        <div id="reply-main"></div>
+                    </div>
+                    <?php
+                    include "foot.inc.php";
+                    ?>
+                    <!-- End page content -->
                 </div>
-                <?php
-                include "foot.inc.php";
-                ?>
-                <!-- End page content -->
             </div>
         </div>
     </body>
