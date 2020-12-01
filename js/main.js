@@ -5,6 +5,7 @@
  */
 
 const CAPTION_POPOUT = "caption_popout";
+const UPLOAD_POPOUT = "upload_popout";
 
 /*
  $('.img-thumbnail').click(function () {
@@ -33,6 +34,7 @@ function activateMenu() {
 }
 
 function resize() {
+    var uploadpopout = document.getElementById(UPLOAD_POPOUT);
     //define the width to resize e.g 600px
     var resize_width = 100;//without px
 
@@ -66,6 +68,15 @@ function resize() {
             //get the base64-encoded Data URI from the resize image
             var srcEncoded = ctx.canvas.toDataURL(el.target, 'image/jpeg', 0);
 
+            if (uploadpopout === null) {
+                uploadpopout = document.createElement("span");
+                uploadpopout.id = UPLOAD_POPOUT;
+                uploadpopout.innerHTML = '<img id="image" alt="Temp Image">';
+                document.getElementById("uploader").insertAdjacentElement("afterend", uploadpopout);
+            } else {
+                $("#" + UPLOAD_POPOUT).remove();
+            }
+
             //assign it to thumb src
             document.querySelector('#image').src = srcEncoded;
             document.getElementById("b64").value = srcEncoded.split(",")[1];
@@ -80,9 +91,8 @@ function togglePopout() {
     if (popout === null) {
         popout = document.createElement("span");
         popout.id = CAPTION_POPOUT;
-        var big_image
         popout.innerHTML = '<br><label for="caption">Caption</label><br><textarea id="caption" name="caption" rows="4" cols="50"></textarea>';
-        document.getElementById("image").insertAdjacentElement("afterend", popout);
+        document.getElementById("uploader").insertAdjacentElement("afterend", popout);
     } else {
         $("#" + CAPTION_POPOUT).remove();
     }

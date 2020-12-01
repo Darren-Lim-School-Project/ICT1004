@@ -12,9 +12,13 @@
         </a>
         <a href="gui.php?id=<?php echo $_SESSION['acc_id'] ?>"><img src="images/sp.jpg" alt="simplegram logo" style="width:100%;" class="w3-round"></a>
 
+        <!--
         <?php
         include "googletranslate.php";
         ?>
+        
+        Will remove this first, unless someone else know how to fix this
+        -->
         <h4><b>Hello <?php echo $_SESSION['fname']; ?> ! </b></h4>
 
     </div>

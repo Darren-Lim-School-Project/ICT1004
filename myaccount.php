@@ -114,6 +114,8 @@ if ($conn->connect_error) {
                                     </tr>
                                     <tr>
                                         <td>
+                                        </td>
+                                        <td>
                                             <button class="btn btn-warning" type="submit">Save</button>
                                         </td>
                                     </tr>

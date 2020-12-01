@@ -43,7 +43,6 @@ session_start();
                             echo '<label for="uploader">Select a file:</label>';
                             echo '<input type="file" id="uploader" accept=".jpg, .png, .jpeg">';
 
-                            echo '<img id="image" alt="Temp Image">';
                             // Might change it to span method instead just to not be flagged by W3C HTML 5 Validator
 
                             echo '<input type="hidden" id="b64" name="b64" value=""/>';
