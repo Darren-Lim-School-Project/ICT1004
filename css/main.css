@@ -554,5 +554,8 @@ di {
     padding: 13px 12px;
     font-size: 1rem;
     line-height: 1.5;
+}
+
+#test-form-submit {
     width: 150px;
 }
