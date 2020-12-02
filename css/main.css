@@ -536,3 +536,22 @@ di {
 .mainheader {
     color: #333333;
 }
+
+.contactUsBtn {
+    background-color: black;
+    border: none;
+    outline: none;
+    height: 49px;
+    border-radius: 49px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    transition: 0.5s;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 13px 12px;
+    font-size: 1rem;
+    line-height: 1.5;
+}

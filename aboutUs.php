@@ -28,7 +28,7 @@
                         <img class="w3-round w3-grayscale-min" src="images/sp.jpg" alt="SimpleGram Logo" style="width:100%;margin:32px 0">
                         <p><i>At SimpleGram our mission is to make your life simple! Upload!Glance!Like!Comment! </i>
                         </p><br>
-                        <p class="w3-center"><a href="contactUs.php" class="w3-button w3-black w3-round w3-padding-large w3-large">contact us now!</a></p>
+                        <p class="w3-center"><a href="contactUs.php" class="contactUsBtn">contact us now!</a></p>
                     </main>
 
                 </div>
