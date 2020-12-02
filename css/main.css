@@ -521,11 +521,16 @@ di {
 }
 .cbutton{
   background: #9F2F04;
-  border: 0;
+  border: none;
   color: #fff;
   padding: 5px;
   margin: 10px 0;
   cursor: pointer;
+  width: 150px;
+  height: 49px;
+  border-radius: 49px;
+  transition: 0.5s;
+  
 }
 
 .mainheader {
