@@ -43,7 +43,7 @@ if ($conn->connect_error) {
         <div class="w3-main" style="margin-left:300px">
             <div class="w3-container w3-padding-64  w3-light-blue w3-grayscale-min" id="us">
                 <div class="w3-content">
-                    <h1 class="w3-center w3-text-grey"><b>My Pictures</b></h1>
+                    <h1 class="w3-center w3-text-grey"><b>Explore Simplegram</b></h1>
                     <br>
                     <div class="gallery">
                         <?php
