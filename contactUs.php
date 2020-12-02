@@ -59,7 +59,7 @@ require '/usr/share/php/libphp-phpmailer/PHPMailerAutoload.php';
                                 </p>
                                 
                                 <p>
-                                    <button type="submit" id="test-form-submit">Submit</button>
+                                    <button type="submit" id="test-form-submit" class="contactUsBtn">Submit</button>
                                     <script src="js/contactus.js"></script>
                                 </p>
                             </form> 
