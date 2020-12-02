@@ -19,7 +19,7 @@
         
         Will remove this first, unless someone else know how to fix this
         -->
-        <h4><b>Hello <?php echo $_SESSION['fname']; ?> ! </b></h4>
+        <h4><b>Hello <?php echo $_SESSION['fname']; ?>! </b></h4>
 
     </div>
     <div class="search-box w3-bar-item w3-padding">
