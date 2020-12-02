@@ -187,9 +187,6 @@ if ($conn->connect_error) {
                         <button class="btn" name="addFriend" type="submit">Add Friend</button>
                         <input type="hidden" name="add_friend_id" value="<?php echo $urlId; ?>">
                     </form>-->
-                    <form action="main.php">
-                        <button class="btn" id="explore" type="submit" >Explore</button> 
-                    </form>
 
                     <script src="public/3b-comments.js"></script>
                     <div id="commentSection">

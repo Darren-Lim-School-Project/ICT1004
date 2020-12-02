@@ -5,9 +5,17 @@ $base64 = $caption = $errorMsg = "";
 $success = true;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $base64 = $_POST["b64"];
+    if ($POST["b64"] == "") {
+        $errorMsg = "You did not upload any image!";
+        $success = false;
+    } else {
+        $base64 = $_POST["b64"];
+    }
     $caption = sanitize_input($_POST["caption"]);
-    saveImageToDB();
+
+    if ($success) {
+        saveImageToDB();
+    }
 } else {
     echo "<h2>This page is not meant to be run directly.</h2>";
     echo "<p>You can register at the link below:</p>";
@@ -30,14 +38,13 @@ function saveImageToDB() {
     $conn = new mysqli($config['servername'], $config['username'],
             $config['password'], $config['dbname']);
     // Check connection
-    if ($conn->connect_error)
-    {
+    if ($conn->connect_error) {
         $errorMsg = "Connection failed: " . $conn->connect_error;
         $success = false;
     } else {
         // Prepare the statement:
         $stmt = $conn->prepare("INSERT INTO image (acc_id, base64, caption, upload_date) VALUES (?, ?, ?, ?)");
-        
+
         // Bind & execute the query statement:
         $stmt->bind_param("ssss", $_SESSION['acc_id'], $base64, $caption, $curDateTime);
         if (!$stmt->execute()) {
@@ -53,28 +60,37 @@ function saveImageToDB() {
     <head>
         <title>Image Upload Result</title>
         <?php
-            include "../head.inc.php";
-        ?>
-        <meta http-equiv="refresh" content="5;url=../gui.php?id=<?php echo $_SESSION['acc_id'] ?>" />
-    </head>
-    <body>
-        <main class="container">
-            
-            <?php
-            if ($success) {
-                echo "<h3>Your image has been uploaded!</h3>";
-                echo "<p>You will be redirected in 3 seconds...</h3>";
-            } else {
-                echo "<h3>Oops!</h3>";
-                echo "<h4>The following input errors were detected:</h4>";
-                echo "<p>" . $errorMsg . $base64 ."</p>";
-                echo "<a class=\"btn btn-danger\" href=\"../upload.php\">Return to Sign Up</a>";
-            }
+        include "../head.inc.php";
+
+        if ($success) {
             ?>
-            
-        </main>
-        <?php
+            <meta http-equiv="refresh" content="5;url=../gui.php?id=<?php echo $_SESSION['acc_id'] ?>" />
+            <?php
+        } else {
+            ?>
+            <meta http-equiv="refresh" content="5;url=../upload.php" />
+            <?php
+        }
+            ?>
+        </head>
+        <body>
+            <main class="container">
+
+                <?php
+                if ($success) {
+                    echo "<h3>Your image has been uploaded!</h3>";
+                    echo "<p>You will be redirected in 3 seconds...</h3>";
+                } else {
+                    echo "<h3>Oops!</h3>";
+                    echo "<h4>The following input errors were detected:</h4>";
+                    echo "<p>" . $errorMsg . $base64 . "</p>";
+                    echo "<a class=\"btn btn-danger\" href=\"../upload.php\">Return to Sign Up</a>";
+                }
+                ?>
+
+            </main>
+            <?php
             include "../footer.inc.php";
-        ?>
+            ?>
     </body>
 </html>
