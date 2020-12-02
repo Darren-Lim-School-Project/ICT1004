@@ -46,7 +46,7 @@ session_start();
                             // Might change it to span method instead just to not be flagged by W3C HTML 5 Validator
 
                             echo '<input type="hidden" id="b64" name="b64" value=""/>';
-                            echo '<button class="btn solid" type="submit">Upload</button>';
+                            echo '<button class="btn btn-warning" type="submit">Upload</button>';
                             echo '</form>';
                         } else {
                             echo "<h2>This page is not meant to be run directly.</h2>";
