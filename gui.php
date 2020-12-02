@@ -177,10 +177,10 @@ if ($conn->connect_error) {
                             </div>
                         <?php } ?>
                     </div>
-                    <form action="process/addFriend.php" method="POST">
+                    <!--<form action="process/addFriend.php" method="POST">
                         <button class="btn" name="addFriend" type="submit">Add Friend</button>
                         <input type="hidden" name="add_friend_id" value="<?php echo $urlId; ?>">
-                    </form>
+                    </form>-->
                     
 
                     <script src="public/3b-comments.js"></script>
