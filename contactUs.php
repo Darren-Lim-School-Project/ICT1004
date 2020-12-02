@@ -2,6 +2,7 @@
 
 <?php
 session_start();
+require '/usr/share/php/libphp-phpmailer/PHPMailerAutoload.php';
 ?>
 
 <html lang="en">
