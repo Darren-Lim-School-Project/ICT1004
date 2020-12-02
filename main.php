@@ -183,13 +183,6 @@ if ($conn->connect_error) {
                     
 
                     <script src="public/3b-comments.js"></script>
-                    <div id="commentSection">
-                        <br>
-                        <br>
-                        <input type="hidden" id="post_id" value="999"/>
-                        <div id="comments"></div>
-                        <div id="reply-main"></div>
-                    </div>
                     <?php
                     include "foot.inc.php";
                     ?>
