@@ -531,6 +531,7 @@ di {
   border-radius: 49px;
   transition: 0.5s;
   text-transform: uppercase;
+  /* font-weight: 600; */
 }
 
 .mainheader {
