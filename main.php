@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-$urlId = $_GET['id'];
 $config = parse_ini_file('../../private/dbconfig.ini');
 $conn = new mysqli($config['servername'], $config['username'],
         $config['password'], $config['dbname']);
@@ -10,8 +9,7 @@ if ($conn->connect_error) {
     $success = false;
 } else {
     // Prepare the statement:
-    $stmt = $conn->prepare("SELECT image_id, base64, caption FROM image WHERE acc_id=?");
-    $stmt->bind_param("s", $urlId);
+    $stmt = $conn->prepare("SELECT image_id, base64, caption FROM image");
     //$stmt = $conn->prepare("SELECT i.base64, i.caption, a.fname, a.lname, i.upload_date FROM image i, accounts a WHERE i.acc_id = a.acc_id ORDER BY i.upload_date DESC");
     // Bind & execute the query statement:
     $stmt->execute();
@@ -181,9 +179,8 @@ if ($conn->connect_error) {
                         <button class="btn" name="addFriend" type="submit">Add Friend</button>
                         <input type="hidden" name="add_friend_id" value="<?php echo $urlId; ?>">
                     </form>-->
-                    <form action="main.php">
-                        <button class="btn" id="explore" type="submit" >Explore</button> 
-                    </form>
+                    
+                    
 
                     <script src="public/3b-comments.js"></script>
                     <div id="commentSection">
