@@ -530,7 +530,7 @@ di {
   height: 49px;
   border-radius: 49px;
   transition: 0.5s;
-  
+  text-transform: uppercase;
 }
 
 .mainheader {
