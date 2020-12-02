@@ -37,7 +37,7 @@ require '/usr/share/php/libphp-phpmailer/PHPMailerAutoload.php';
                         <!-- Contact Section -->
                         <form action="https://formspree.io/f/xpzolkro" id="test-form" method="POST">
                             <p>Lets get in touch. Send us a message:</p>
-                            <form action="MailTo:stellayang23@hotmail.com"  method ="post" enctype="text/plain" target="_blank">
+                           
                                 <p>
                                     <label for="contactus_fname">Name:</label>
                                     <input class="w3-input w3-padding-16 w3-border" type="text" id="contactus_fname" value="<?php echo $_SESSION['fname']; ?>" name="Name" required>

@@ -30,6 +30,11 @@ if ($conn->connect_error) {
             p {
                 text-align: center;
             }
+                  .img1{
+                width: 289px;
+                height: 200px;
+            }
+            
         </style>
     </head>
     <body class="w3-light-grey w3-content" style="max-width:1600px">
@@ -67,7 +72,7 @@ if ($conn->connect_error) {
                                 <div class="w3-third w3-container w3-margin-bottom">
                                     <?php if ($images[$i] != null) { ?>
                                         <?php
-                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
+                                        echo "<img class='img1' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
                                         ?>
                                         <div class="w3-container w3-white">
                                             <?php
@@ -103,7 +108,7 @@ if ($conn->connect_error) {
                                 <div class="w3-third w3-container w3-margin-bottom">
                                     <?php if ($images[$i] != null) { ?>
                                         <?php
-                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
+                                        echo "<img class='img1' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
                                         ?>
                                         <div class="w3-container w3-white">
                                             <?php
@@ -139,7 +144,7 @@ if ($conn->connect_error) {
                                 <div class="w3-third w3-container">
                                     <?php if ($images[$i] != null) { ?>
                                         <?php
-                                        echo "<img style='width:100%' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
+                                        echo "<img class='img1' src='data:image/png;base64," . $images[$i] . "' alt='Image by " . $fname[$i] . " " . $lname[$i] . "'>";
                                         ?>
                                         <div class="w3-container w3-white">
                                             <?php
