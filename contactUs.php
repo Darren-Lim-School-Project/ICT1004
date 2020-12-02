@@ -35,7 +35,7 @@ require '/usr/share/php/libphp-phpmailer/PHPMailerAutoload.php';
 
                     <main>
                         <!-- Contact Section -->
-                        <form action="https://formspree.io/f/xpzolkro" id="test-form" method="POST">
+                        <form action="MailTo:simplegram@hotmail.com"  method ="post" enctype="text/plain" target="_blank">
                             <p>Lets get in touch. Send us a message:</p>
                            
                                 <p>

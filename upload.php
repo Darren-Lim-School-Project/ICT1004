@@ -42,9 +42,6 @@ session_start();
                             echo '<form action="process/process_upload.php" class="sign-in-form" method="POST">';
                             echo '<label for="uploader">Select a file:</label>';
                             echo '<input type="file" id="uploader" accept=".jpg, .png, .jpeg">';
-
-                            // Might change it to span method instead just to not be flagged by W3C HTML 5 Validator
-
                             echo '<input type="hidden" id="b64" name="b64" value=""/>';
                             echo '<button class="btn btn-warning" type="submit">Upload</button>';
                             echo '</form>';
