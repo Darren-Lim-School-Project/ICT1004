@@ -23,7 +23,7 @@ switch ($_POST['req']) {
                     <span class="ctime"><?= $time ?></span>
                 </div>
                 <div class="cmessage"><?= $message ?></div>
-                <input type="button" class="cbutton" value="Reply" onclick="comments.reply(<?= $cid ?>, <?= $rid ?>)"/>
+                <input type="button" class="btn btn-primary" value="Reply" onclick="comments.reply(<?= $cid ?>, <?= $rid ?>)"/>
                 <div id="reply-<?= $cid ?>"></div>
             </div>
         <?php
@@ -52,7 +52,7 @@ switch ($_POST['req']) {
                 <input type="hidden" name="name" value="<?php echo $_SESSION['fname'] . ' ' . $_SESSION['lname'] ?>" required/>
                 <label for="message">Write your comment below:</label>
                 <textarea name="message" id="message" placeholder="Message" required></textarea>
-                <input type="submit" class="cbutton" value="Post Comment"/>
+                <input type="submit" class="btn btn-primary" value="Post Comment"/>
             </form>
         <?php
         } break;
