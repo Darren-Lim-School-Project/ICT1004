@@ -83,6 +83,7 @@ if ($conn->connect_error) {
                                             <div class="w3-container w3-white">
                                                 <?php
                                                 echo "<p><b>" . $captions[$i] . "</b></p>";
+                                                echo "<p>Posted by: " . $fname[$i] . " " . $lname[$i] . "</p>";
                                                 ?>
                                                 <div class="post-info">
                                                     <!-- If user likes post, style button differently -->
@@ -119,6 +120,7 @@ if ($conn->connect_error) {
                                             <div class="w3-container w3-white">
                                                 <?php
                                                 echo "<p><b>" . $captions[$i] . "</b></p>";
+                                                echo "<p>Posted by: " . $fname[$i] . " " . $lname[$i] . "</p>";
                                                 ?>
                                                 <div class="post-info">
                                                     <!-- if user likes post, style button differently -->
@@ -155,6 +157,7 @@ if ($conn->connect_error) {
                                             <div class="w3-container w3-white">
                                                 <?php
                                                 echo "<p><b>" . $captions[$i] . "</b></p>";
+                                                echo "<p>Posted by: " . $fname[$i] . " " . $lname[$i] . "</p>";
                                                 ?>
                                                 <div class="post-info">
                                                     <!-- if user likes post, style button differently -->
