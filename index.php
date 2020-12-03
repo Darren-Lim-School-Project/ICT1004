@@ -63,7 +63,7 @@ and open the template in the editor.
 
                             <i class="fas fa-user"></i>
                             <input type="text" aria-label="Enter your first name to create an account." 
-                                   id="fname" name="fname" placeholder="First Name" required>
+                                   id="fname" name="fname" placeholder="First Name">
 
                         </div>
 
