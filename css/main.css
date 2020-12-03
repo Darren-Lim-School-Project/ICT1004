@@ -557,6 +557,6 @@ di {
     line-height: 1.5;
 }
 
-#test-form-submit {
+#test-form-submit, #uploadBtn {
     width: 150px;
 }

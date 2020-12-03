@@ -45,7 +45,7 @@ if (!isset($_SESSION['acc_id'])) { //if login in session is not set
                             <label for="uploader">Select a file:</label>
                             <input type="file" id="uploader" accept=".jpg, .png, .jpeg">
                             <input type="hidden" id="b64" name="b64" value=""/>
-                            <button class="btn btn-warning" type="submit">Upload</button>
+                            <button class="contactUsBtn" id="uploadBtn" type="submit">Upload</button>
                         </form>
                     </main>
                     <?php
