@@ -1,7 +1,14 @@
+<?php
+session_start();
+if(!isset($_SESSION['acc_id'])){ //if login in session is not set
+    header("Location: http://34.207.30.147/SimpleGram/");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 
 <?php
-session_start();
 require '/usr/share/php/libphp-phpmailer/PHPMailerAutoload.php';
 ?>
 

@@ -5,7 +5,7 @@ $base64 = $caption = $errorMsg = "";
 $success = true;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if ($POST["b64"] == "") {
+    if ($_POST["b64"] == "") {
         $errorMsg = "You did not upload any image!";
         $success = false;
     } else {

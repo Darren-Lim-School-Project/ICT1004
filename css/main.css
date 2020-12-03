@@ -477,61 +477,61 @@ di {
 
 /* [COMMENTS] */
 .ccomment {
-  border: 2px solid black;
-  border-radius: 10px;
-  padding: 15px;
-  margin: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
 }
 .ccomment.creply {
-  margin-left: 40px;
+    margin-left: 40px;
 }
 .cname {
-  color: darkblue;
-  font-weight: bold;
+    color: darkblue;
+    font-weight: bold;
 }
 .ctime::before {
-  display: inline-block;
-  content: "-";
-  margin: 0 5px;
+    display: inline-block;
+    content: "-";
+    margin: 0 5px;
 }
 .ctime {
-  color: black;
-  font-size: 0.9em;
+    color: black;
+    font-size: 0.9em;
 }
 .cmessage {
-  color: #333;
-  margin-top: 10px;
+    color: #333;
+    margin-top: 10px;
 }
 
 /* [REPLY FORM] */
 .creplyform {
-  /* background: #f2f2f2;*/
-  border: 2px solid black;
-  border-radius: 10px;
-  padding: 15px;
-  margin: 10px;
+    /* background: #f2f2f2;*/
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
 }
 .creplyform h1 {
-  font-size: 1.3em;
+    font-size: 1.3em;
 }
 .creplyform input[type=text], .creplyform textarea{
-  width: 100%;
-  margin: 5px;
-  padding: 10px;
+    width: 100%;
+    margin: 5px;
+    padding: 10px;
 }
 .cbutton{
-  background: #9F2F04;
-  border: none;
-  color: #fff;
-  padding: 5px;
-  margin: 10px 0;
-  cursor: pointer;
-  width: 150px;
-  height: 49px;
-  border-radius: 49px;
-  transition: 0.5s;
-  text-transform: uppercase;
-  /* font-weight: 600; */
+    background: #9F2F04;
+    border: none;
+    color: #fff;
+    padding: 5px;
+    margin: 10px 0;
+    cursor: pointer;
+    width: 150px;
+    height: 49px;
+    border-radius: 49px;
+    transition: 0.5s;
+    text-transform: uppercase;
+    /* font-weight: 600; */
 }
 
 .mainheader {

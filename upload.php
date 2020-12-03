@@ -7,6 +7,10 @@ and open the template in the editor.
 
 <?php
 session_start();
+if (!isset($_SESSION['acc_id'])) { //if login in session is not set
+    header("Location: http://34.207.30.147/SimpleGram/");
+    exit();
+}
 ?>
 
 <html lang="en">
@@ -31,26 +35,18 @@ session_start();
         <div class="w3-main" style="margin-left:300px">
             <div class="w3-container w3-padding-64  w3-light-blue w3-grayscale-min" id="us">
                 <div class="w3-content">
-                    
+
                     <header>
                         <h1 class="w3-center mainheader">Upload Image</h1>
                     </header>
-                    
+
                     <main class="di" >
-                        <?php
-                        if (isset($_SESSION['acc_id'])) {
-                            echo '<form action="process/process_upload.php" class="sign-in-form" method="POST">';
-                            echo '<label for="uploader">Select a file:</label>';
-                            echo '<input type="file" id="uploader" accept=".jpg, .png, .jpeg">';
-                            echo '<input type="hidden" id="b64" name="b64" value=""/>';
-                            echo '<button class="btn btn-warning" type="submit">Upload</button>';
-                            echo '</form>';
-                        } else {
-                            echo "<h2>This page is not meant to be run directly.</h2>";
-                            echo "<p>You can login at the link below:</p>";
-                            echo "<a href='index.php'>Go to Login page...</a>";
-                        }
-                        ?>
+                        <form action="process/process_upload.php" class="sign-in-form" method="POST">
+                            <label for="uploader">Select a file:</label>
+                            <input type="file" id="uploader" accept=".jpg, .png, .jpeg">
+                            <input type="hidden" id="b64" name="b64" value=""/>
+                            <button class="btn btn-warning" type="submit">Upload</button>
+                        </form>
                     </main>
                     <?php
                     include "foot.inc.php";

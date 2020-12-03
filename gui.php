@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['acc_id'])){ //if login in session is not set
+    header("Location: http://34.207.30.147/SimpleGram/");
+    exit();
+}
 
 $urlId = $_GET['id'];
 $config = parse_ini_file('../../private/dbconfig.ini');
@@ -10,9 +14,9 @@ if ($conn->connect_error) {
     $success = false;
 } else {
     // Prepare the statement:
-    $stmt = $conn->prepare("SELECT image_id, base64, caption FROM image WHERE acc_id=?");
+    //$stmt = $conn->prepare("SELECT image_id, base64, caption FROM image WHERE acc_id=?");
+    $stmt = $conn->prepare("SELECT i.base64, i.caption, a.fname, a.lname, i.upload_date FROM image i, accounts a WHERE a.acc_id=? AND i.acc_id = a.acc_id ORDER BY i.upload_date DESC");
     $stmt->bind_param("s", $urlId);
-    //$stmt = $conn->prepare("SELECT i.base64, i.caption, a.fname, a.lname, i.upload_date FROM image i, accounts a WHERE i.acc_id = a.acc_id ORDER BY i.upload_date DESC");
     // Bind & execute the query statement:
     $stmt->execute();
     $result = $stmt->get_result();
@@ -32,12 +36,11 @@ if ($conn->connect_error) {
             p {
                 text-align: center;
             }
-            
-             .img1{
-                width: 289px;
-                height: 200px;
+
+            .img1{
+                width: 100%;
             }
-            
+
         </style>
     </head>
     <body class="w3-light-grey w3-content" style="max-width:1600px">
@@ -51,8 +54,13 @@ if ($conn->connect_error) {
         <div class="w3-main" style="margin-left:300px">
             <div class="w3-container w3-padding-64  w3-light-blue w3-grayscale-min" id="us">
                 <div class="w3-content">
-                    <h1 class="w3-center w3-text-grey"><b>My Pictures</b></h1>
+                    <header>
+                    <h1 class="w3-center mainheader">
+                        <b>My Pictures</b>
+                    </h1>
+                    </header>
                     <br>
+                    <main>
                     <div class="gallery">
                         <?php
                         $images = array();
@@ -196,6 +204,7 @@ if ($conn->connect_error) {
                         <div id="comments"></div>
                         <div id="reply-main"></div>
                     </div>
+                    </main>
                     <?php
                     include "foot.inc.php";
                     ?>

@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['acc_id'])){ //if login in session is not set
+    header("Location: http://34.207.30.147/SimpleGram/");
+    exit();
+}
 
 $conn = new mysqli('localhost', 'simplesqldev', 'password', 'SimpleGram');
 

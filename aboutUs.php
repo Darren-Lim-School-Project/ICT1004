@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['acc_id'])) { //if login in session is not set
+    header("Location: http://34.207.30.147/SimpleGram/");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,9 +34,9 @@
 
                     <main>
                         <img class="w3-round w3-grayscale-min" src="images/sp.jpg" alt="SimpleGram Logo" style="width:100%;margin:32px 0">
-                        <p><i>At SimpleGram our mission is to make your life simple! Upload!Glance!Like!Comment! </i>
-                        </p><br>
-                        <p class="w3-center"><a href="contactUs.php" class="contactUsBtn">contact us now!</a></p>
+                        <p>At SimpleGram, we believe in creating network between user-user, therefore we had made this gallery upload simple but yet catchy for the user to use.</p>
+                        <p>No Requirement to add friend to view their profile, just search for your friend's name you can easily find their profile!</p>
+                        <p>We would also like to bring back to those good old days whereby you might have asked your friend to "Leave a testimonial on my wall" when the social media called Friend**er was still around. Nostalgic huh?</p>
                     </main>
 
                 </div>
