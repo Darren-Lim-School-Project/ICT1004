@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 } else {
     // Prepare the statement:
     //$stmt = $conn->prepare("SELECT image_id, base64, caption FROM image");
-    $stmt = $conn->prepare("SELECT i.image_id, i.base64, i.caption, a.fname, a.lname, i.upload_date FROM image i, accounts a WHERE i.acc_id = a.acc_id ORDER BY i.upload_date DESC");
+    $stmt = $conn->prepare("SELECT i.image_id, i.base64, i.caption, a.fname, a.lname, i.upload_date, i.acc_id FROM image i, accounts a WHERE i.acc_id = a.acc_id ORDER BY i.upload_date DESC");
     // Bind & execute the query statement:
     $stmt->execute();
     $result = $stmt->get_result();
@@ -63,12 +63,14 @@ if ($conn->connect_error) {
                             $fname = array();
                             $lname = array();
                             $postId = array();
+                            $acc_id = array();
                             while ($row = mysqli_fetch_assoc($result)) {
                                 $images[] = $row["base64"];
                                 $captions[] = $row["caption"];
                                 $fname[] = $row["fname"];
                                 $lname[] = $row["lname"];
                                 $postId[] = $row["image_id"];
+                                $acc_id[] = $row["acc_id"];
                             }
                             $count = count($images);
                             ?>
@@ -82,8 +84,8 @@ if ($conn->connect_error) {
                                             ?>
                                             <div class="w3-container w3-white">
                                                 <?php
-                                                echo "<p><b>" . $captions[$i] . "</b></p>";
-                                                ?>
+                                                echo "<p><b>" . $captions[$i] . "</b></p>";?>
+                                                <p>Posted by: <a href="./gui.php?id=<?=$acc_id[$i]?>"><?=$fname[$i] . " " , $lname[$i]?></a></p>
                                                 <div class="post-info">
                                                     <!-- If user likes post, style button differently -->
                                                     <i <?php if (userLiked($postId[$i])): ?>
@@ -118,8 +120,8 @@ if ($conn->connect_error) {
                                             ?>
                                             <div class="w3-container w3-white">
                                                 <?php
-                                                echo "<p><b>" . $captions[$i] . "</b></p>";
-                                                ?>
+                                                echo "<p><b>" . $captions[$i] . "</b></p>"; ?>
+                                                <p>Posted by: <a href="./gui.php?id=<?=$acc_id[$i]?>"><?=$fname[$i] . " " , $lname[$i]?></a></p>
                                                 <div class="post-info">
                                                     <!-- if user likes post, style button differently -->
                                                     <i <?php if (userLiked($postId[$i])): ?>
@@ -154,8 +156,8 @@ if ($conn->connect_error) {
                                             ?>
                                             <div class="w3-container w3-white">
                                                 <?php
-                                                echo "<p><b>" . $captions[$i] . "</b></p>";
-                                                ?>
+                                                echo "<p><b>" . $captions[$i] . "</b></p>"; ?>
+                                                <p>Posted by: <a href="./gui.php?id=<?=$acc_id[$i]?>"><?=$fname[$i] . " " , $lname[$i]?></a></p>
                                                 <div class="post-info">
                                                     <!-- if user likes post, style button differently -->
                                                     <i <?php if (userLiked($postId[$i])): ?>
