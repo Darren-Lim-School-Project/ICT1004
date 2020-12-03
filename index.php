@@ -39,19 +39,6 @@ and open the template in the editor.
                         </div>
 
                         <button class="btn solid" type="submit">Login</button>
-
-                        <p class="social-text">Or Sign in with social platforms</p>
-                        <div class="social-media">
-
-                            <a href="#" aria-label="Login with Facebook" class="social-icon">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-
-                            <a href="#" aria-label="Login with Google" class="social-icon">
-                                <i class="fab fa-google"></i>
-                            </a>
-
-                        </div>
                     </form>
                     <form action="process/process_register.php" class="sign-up-form" method="POST">
                         <h1 class="title">Sign up</h1>
@@ -106,15 +93,6 @@ and open the template in the editor.
 
                         </div>
                         <button class="btn" type="submit">Sign up</button>
-                        <p class="social-text">Or Sign up with social platforms</p>
-                        <div class="social-media">
-                            <a href="#" aria-label="Sign up with Facebook" class="social-icon">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" aria-label="Sign up with Google" class="social-icon">
-                                <i class="fab fa-google"></i>
-                            </a>
-                        </div>
                     </form>
                 </div>
             </div>

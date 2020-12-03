@@ -113,10 +113,6 @@ function saveMemberToDB() {
         ?>
     </head>
     <body>
-        <?php
-            include "../nav.inc.php";
-        ?>
-        
         <main class="container">
             
             <?php
