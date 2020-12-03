@@ -30,7 +30,7 @@
     <div class="w3-bar-item w3-padding">
 
         <a href='main.php' onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
-            <i class=" fa fa-envelope fa-fw w3-margin-right"></i>Explore</a>
+            <i class=" fa fa-globe fa-fw w3-margin-right"></i>Explore</a>
         
         <a href='gui.php?id=<?php echo $_SESSION['acc_id'] ?>' onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
             <i class=" fa fa-address-card-o fa-fw w3-margin-right"></i>My Profile</a> 
