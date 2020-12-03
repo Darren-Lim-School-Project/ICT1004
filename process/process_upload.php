@@ -84,7 +84,7 @@ function saveImageToDB() {
                     echo "<h3>Oops!</h3>";
                     echo "<h4>The following input errors were detected:</h4>";
                     echo "<p>" . $errorMsg . $base64 . "</p>";
-                    echo "<a class=\"btn btn-danger\" href=\"../upload.php\">Return to Sign Up</a>";
+                    echo "<a class=\"btn btn-danger\" href=\"../upload.php\">Return to Upload Image</a>";
                 }
                 ?>
 
