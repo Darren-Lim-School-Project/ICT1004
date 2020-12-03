@@ -200,7 +200,7 @@ if ($conn->connect_error) {
                     <div id="commentSection">
                         <br>
                         <br>
-                        <input type="hidden" id="post_id" value="999"/>
+                        <input type="hidden" id="post_id" value="<?php echo $_GET['id'] ?>"/>
                         <div id="comments"></div>
                         <div id="reply-main"></div>
                     </div>
