@@ -92,7 +92,7 @@ and open the template in the editor.
                                    id="regpwd_confirm" name="regpwd_confirm" placeholder="Confirm Password" required>
 
                         </div>
-                        <button class="btn" type="submit">Sign up</button>
+                        <button class="btn btn-primary" type="submit">Sign up</button>
                     </form>
                 </div>
             </div>
