@@ -2,7 +2,8 @@
 session_start();
 if (($_SESSION['admin']) == 1) { //if login in session is not set 
     ?>
-    <html>
+    <!DOCTYPE html>
+    <html lang="en">
         <head>
             <?php
             include "head.inc.php";
@@ -28,24 +29,28 @@ if (($_SESSION['admin']) == 1) { //if login in session is not set
                         </header>
                         <br>
                         <main>
-                            <h3 class="w3-center">EDIT COMMENT</h3>
+                            <h2 class="w3-center">EDIT COMMENT</h2>
                             <form method="post" target="_blank" action="4b-admin-ajax-comments.php">
                                 <input type="hidden" name="req" value="edit"/>
                                 <br>
-                                Comment ID:<input type="number" name="comment_id" required/>
+                                <label for="comment_id">Comment ID:</label>
+                                <input type="number" name="comment_id" aria-label="Enter the comment ID" required/>
                                 <br>
-                                Name:<input type="text" name="name" required/>
+                                <label for="name">Name:</label>
+                                <input type="text" name="name" aria-label="Enter the name of the user" required/>
                                 <br>
-                                Message:<input type="text" name="message" required/>
+                                <label for="message">Message:</label>
+                                <input type="text" name="message" id="message" aria-label="Enter the message"  required/>
                                 <br>
                                 <input type="submit" class="btn btn-dark" value="Edit"/>
                             </form>
 
-                            <h3 class="w3-center">DELETE COMMENT</h3>
+                            <h2 class="w3-center">DELETE COMMENT</h2>
                             <form method="post" target="_blank" action="4b-admin-ajax-comments.php">
                                 <input type="hidden" name="req" value="del"/>
                                 <br>
-                                Comment ID:<input type="number" name="comment_id" required/>
+                                <label for="dcomment_id">Comment ID:</label>
+                                <input type="number" name="comment_id" id="dcomment_id" aria-label="Enter the comment ID"  required/>
                                 <br>
                                 <input type="submit" class="btn btn-danger" value="Delete"/>
                             </form>
@@ -63,7 +68,8 @@ if (($_SESSION['admin']) == 1) { //if login in session is not set
     <?php
 } else {
     ?>
-    <html>
+    <!DOCTYPE html>
+    <html lang="en">
         <head>
             <?php
             include "head.inc.php";
@@ -90,7 +96,7 @@ if (($_SESSION['admin']) == 1) { //if login in session is not set
                         <br>
                         <main>
                             <img src="images/holup.gif" alt="Hold Up" id="holup">
-                            <h3 class="w3-center">I don't think you should be here...</h3>
+                            <h2 class="w3-center">I don't think you should be here...</h2>
                             <br>
                         </main>
                         <?php
