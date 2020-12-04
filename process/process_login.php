@@ -41,7 +41,7 @@ function sanitize_input($data) {
  * Helper function to authenticate the login.
  */
 function authenticateUser() {
-    global $acc_id, $fname, $lname, $email, $pwd_hashed, $errorMsg, $success;
+    global $acc_id, $fname, $lname, $email, $pwd_hashed, $errorMsg, $success, $admin;
     
     // Create database connection.
     $config = parse_ini_file('../../../private/dbconfig.ini');
@@ -70,6 +70,7 @@ function authenticateUser() {
             $uname = $row["uname"];
             $email = $row["email"];
             $pwd_hashed = $row["password"];
+            $admin = $row["admin"];
             
             // Check if the password matches:
             if (!password_verify($_POST["pwd"], $pwd_hashed)) {
@@ -83,6 +84,7 @@ function authenticateUser() {
                 $_SESSION['lname'] = $lname;
                 $_SESSION['uname'] = $uname;
                 $_SESSION['email'] = $email;
+                $_SESSION['admin'] = $admin;
                 if (isset($_SESSION['fname'])) {
                     header('Location: ../main.php');
                 }

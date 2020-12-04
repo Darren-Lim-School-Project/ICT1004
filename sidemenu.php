@@ -49,7 +49,11 @@
 
         <a href="logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-sign-out fa-fw w3-margin-right"></i>Logout</a> 
-
+        
+        <?php if ($_SESSION['admin'] == 1) { ?>
+        <a href="4a-admin.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
+            <i class="fa fa-sign-out fa-fw w3-margin-right"></i>Comments Admin Page</a>
+        <?php } ?>
     </div>
 
 </nav>
