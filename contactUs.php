@@ -8,10 +8,6 @@ if(!isset($_SESSION['acc_id'])){ //if login in session is not set
 
 <!DOCTYPE html>
 
-<?php
-require '/usr/share/php/libphp-phpmailer/PHPMailerAutoload.php';
-?>
-
 <html lang="en">
 
     <head>
@@ -50,10 +46,10 @@ require '/usr/share/php/libphp-phpmailer/PHPMailerAutoload.php';
                                     <input class="w3-input w3-padding-16 w3-border" type="text" id="contactus_fname" value="<?php echo $_SESSION['fname']; ?>" name="Name" required>
                                 </p>
 
-                                <p>
+<!--                                <p>
                                     <label for="contactus_email">Email:</label>
                                     <input class="w3-input w3-padding-16 w3-border" type="text" id="contactus_email" value="<?php echo $_SESSION['email']; ?>" name="Email" required>
-                                </p>
+                                </p>-->
 
                                 <p>
                                     <label for="contactus_subject">Subject:</label>
