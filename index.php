@@ -38,7 +38,7 @@ and open the template in the editor.
                                    id="pwd" name="pwd" placeholder="Password" required>
                         </div>
 
-                        <button class="btn solid" type="submit">Login</button>
+                        <button class="btn btn-primary" type="submit">Login</button>
                     </form>
                     <form action="process/process_register.php" class="sign-up-form" method="POST">
                         <h1 class="title">Sign up</h1>
