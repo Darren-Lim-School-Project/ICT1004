@@ -51,6 +51,7 @@
             <i class="fa fa-sign-out fa-fw w3-margin-right"></i>Logout</a> 
         
         <?php if ($_SESSION['admin'] == 1) { ?>
+        <p><h4><b>Administration</b></h4></p>
         <a href="4a-admin.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
             <i class="fa fa-sign-out fa-fw w3-margin-right"></i>Comments Admin Page</a>
         <?php } ?>
