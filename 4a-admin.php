@@ -89,7 +89,8 @@ if (($_SESSION['admin']) == 1) { //if login in session is not set
                         </header>
                         <br>
                         <main>
-                            <h3 class="w3-center">Hold on there, I don't think you should be here...</h3>
+                            <img src="images/holup.gif" alt="Hold Up" id="holup">
+                            <h3 class="w3-center">I don't think you should be here...</h3>
                             <br>
                         </main>
                         <?php

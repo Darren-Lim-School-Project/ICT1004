@@ -560,3 +560,9 @@ di {
 #test-form-submit, #uploadBtn {
     width: 150px;
 }
+
+#holup {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
